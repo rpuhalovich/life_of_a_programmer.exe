@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 475722166}
   - component: {fileID: 475722165}
   - component: {fileID: 475722164}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 817181509}
   - component: {fileID: 817181508}
   - component: {fileID: 817181507}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0688ec9765024147a4f8069b0b34cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  mouseSensitivity: 250
   playerBody: {fileID: 1623994249}
 --- !u!1 &1093494878
 GameObject:
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 1093494881}
   - component: {fileID: 1093494880}
   - component: {fileID: 1093494879}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 1207334003}
   - component: {fileID: 1207334002}
   - component: {fileID: 1207334001}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -878,6 +878,7 @@ MonoBehaviour:
   controller: {fileID: 1623994248}
   speed: 12
   gravity: -9.81
+  jumpHeight: 3
   groundCheck: {fileID: 1229224773}
   groundDistance: 0.4
   groundMask:
