@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4244401, g: 0.45606315, b: 0.4803803, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -483,13 +483,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.9643619, y: -0.014722425, z: 0.25839993, w: 0.054944832}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 173.478, y: -30, z: 0}
 --- !u!1 &817181506
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,15 +971,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cd5d4ccc5c2b946b4af7762c255397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  controller: {fileID: 1623994248}
   speed: 12
   gravity: -19.62
   jumpHeight: 2
-  groundCheck: {fileID: 1775142921}
+  groundCheck: {fileID: 1229224773}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!1 &1775142917
 GameObject:
   m_ObjectHideFlags: 0
