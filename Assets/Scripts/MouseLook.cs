@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-
     [SerializeField]
     private float mouseSensitivity = 100f;
 
