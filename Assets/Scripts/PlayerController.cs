@@ -20,21 +20,43 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashLength = 0.2f;
     [SerializeField] private float dashResetTime = 2f;
     [SerializeField] private int maxDashAttempts = 1;
-
     CharacterController characterController;
+
+    // Grapple
+    private Camera playerCamera;
+    private grappleState state;
+    private Vector3 grapplePos;
+    private enum grappleState {
+        normal, launch, end
+    }
+    [SerializeField] private Transform hitPoint;
 
     // Called on component startup.
     private void Start()
     {
         this.characterController = GetComponent<CharacterController>();
         dash = new Dash(dashSpeed, dashLength, dashResetTime, maxDashAttempts);
+        state = grappleState.normal;
+    }
+
+    private void Awake() {
+        playerCamera = transform.Find("Main Camera").GetComponent<Camera>();
     }
 
     // Update is called once per frame.
     void Update()
     {
-        HandleMovement();
-        dash.HandleDash(movementVector, transform, characterController, isGrounded);
+        switch (state) {
+            default:
+            case grappleState.normal:
+                HandleMovement();
+                dash.HandleDash(movementVector, transform, characterController, isGrounded);
+                HandleGrappleStart();
+                break;
+            case grappleState.launch:
+                HandleGrappleLaunch();
+                break;
+        }
     }
 
     void HandleMovement()
@@ -59,5 +81,22 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+    
+    void HandleGrappleStart() {
+        if (Input.GetMouseButtonDown(0)) {
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit)) {
+                hitPoint.position = rayHit.point;
+                grapplePos = rayHit.point;
+                state = grappleState.launch;
+            }
+        }
+    }
+
+    void HandleGrappleLaunch() {
+        Vector3 grappleDir = (grapplePos - transform.position).normalized;
+
+        float launchSpeed = 10.0f;
+        controller.Move(grappleDir * launchSpeed * Time.deltaTime);
     }
 }
