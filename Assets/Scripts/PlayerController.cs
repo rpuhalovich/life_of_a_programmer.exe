@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -23,45 +26,55 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
 
     // Grapple
-    private Camera playerCamera;
-    private grappleState state;
-    private Vector3 grapplePos;
-    private enum grappleState {
-        normal, launch, end
-    }
-    [SerializeField] private Transform hitPoint;
+    const float NORMAL_FOV = 60.0f;
+    const float GRAPPLE_FOV = 100.0f;
+    Grapple grapple;
+    Camera playerCamera;
+    GrappleFOV fov;
+    Vector3 velocityMomentum;
+    LineRenderer lineRenderer;
+    [SerializeField] private float maxGrappleDist = 50.0f;
+    [SerializeField] private Transform grappleLine;
+    [SerializeField] private LayerMask grappleable;
 
     // Called on component startup.
     private void Start()
     {
         this.characterController = GetComponent<CharacterController>();
         dash = new Dash(dashSpeed, dashLength, dashResetTime, maxDashAttempts);
-        state = grappleState.normal;
     }
 
     private void Awake() {
         playerCamera = transform.Find("Main Camera").GetComponent<Camera>();
+        fov = playerCamera.GetComponent<GrappleFOV>();
+        grappleLine.gameObject.SetActive(false);
+        grapple = new Grapple(playerCamera, fov, grappleLine, grappleable, maxGrappleDist);
     }
 
     // Update is called once per frame.
     void Update()
     {
-        switch (state) {
+        // checks on the grapple state before determining what the player can handle per frame
+        switch (grapple.State()) {
             default:
-            case grappleState.normal:
+            case Grapple.grappleState.normal:
                 HandleMovement();
                 dash.HandleDash(movementVector, transform, characterController, isGrounded);
-                HandleGrappleStart();
+                grapple.HandleGrappleStart();
                 break;
-            case grappleState.launch:
-                HandleGrappleLaunch();
+            case Grapple.grappleState.shoot:
+                HandleMovement();
+                grapple.HandleGrappleShoot(transform, GRAPPLE_FOV);
+                break;
+            case Grapple.grappleState.launch:
+                grapple.HandleGrappleLaunch(controller, transform, ref velocity, ref velocityMomentum, jumpHeight, NORMAL_FOV);
                 break;
         }
     }
 
     void HandleMovement()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance,groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0.0f)
         {
@@ -72,7 +85,6 @@ public class PlayerController : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         movementVector = Vector3.ClampMagnitude(transform.right * horizontalInput + transform.forward * verticalInput, 1.0f);
-        controller.Move(movementVector * speed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -80,23 +92,21 @@ public class PlayerController : MonoBehaviour
         }
 
         velocity.y += gravity * Time.deltaTime;
+
+        // adds momentum from grapple launches (if any)
+        movementVector += velocityMomentum;
+
+        controller.Move(movementVector * speed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
-    }
-    
-    void HandleGrappleStart() {
-        if (Input.GetMouseButtonDown(0)) {
-            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit)) {
-                hitPoint.position = rayHit.point;
-                grapplePos = rayHit.point;
-                state = grappleState.launch;
+
+        // slowing down the momentum
+        if (velocityMomentum.magnitude >= 0.0f) {
+            float dragEffect = 3.0f;
+            velocityMomentum -= velocityMomentum * dragEffect * Time.deltaTime;
+
+            if (velocityMomentum.magnitude < 0.0f) {
+                velocityMomentum = Vector3.zero;
             }
         }
-    }
-
-    void HandleGrappleLaunch() {
-        Vector3 grappleDir = (grapplePos - transform.position).normalized;
-
-        float launchSpeed = 10.0f;
-        controller.Move(grappleDir * launchSpeed * Time.deltaTime);
     }
 }
