@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxGrappleDist = 50.0f;
     [SerializeField] private Transform grappleLine;
     [SerializeField] private LayerMask grappleable;
+    // Grapple Crosshair
+    Crosshair crosshair;
+    [SerializeField] private Transform isGrappleable;
+    [SerializeField] private Transform isntGrappleable;
 
     // Called on component startup.
     private void Start()
@@ -49,11 +53,14 @@ public class PlayerController : MonoBehaviour
         fov = playerCamera.GetComponent<GrappleFOV>();
         grappleLine.gameObject.SetActive(false);
         grapple = new Grapple(playerCamera, fov, grappleLine, grappleable, maxGrappleDist);
+        crosshair = new Crosshair(playerCamera, maxGrappleDist, grappleable, isGrappleable, isntGrappleable);
     }
 
     // Update is called once per frame.
     void Update()
     {
+        crosshair.checkGrappleableCrosshair();
+
         // checks on the grapple state before determining what the player can handle per frame
         switch (grapple.State()) {
             default:

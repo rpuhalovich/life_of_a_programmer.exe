@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -71,6 +70,9 @@ public class Grapple
         float reachedGrapplePos = 2.0f;
         // if player reaches the end of the grapple position
         if (Vector3.Distance(transform.position, grapplePos) < reachedGrapplePos) {
+            float momentumSpeed = 0.15f;
+            velocityMomentum = grappleDir * launchSpeed * momentumSpeed;
+            velocityMomentum += Vector3.up * jumpHeight;
             ResetGrapple(ref state, ref velocity, ref grappleLine, NORMAL_FOV);
         }
 
@@ -80,12 +82,12 @@ public class Grapple
         }
 
         // cancel the grapple mid way with a jump
-        if (Input.GetButtonDown("Jump")) {
+        /*if (Input.GetButtonDown("Jump")) {
             float momentumSpeed = 0.15f;
             velocityMomentum = grappleDir * launchSpeed * momentumSpeed;
             velocityMomentum += Vector3.up * jumpHeight;
             ResetGrapple(ref state, ref velocity, ref grappleLine, NORMAL_FOV);
-        }
+        }*/
     }
 
     void ResetGravity(ref Vector3 velocity) {
