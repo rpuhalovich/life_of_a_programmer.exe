@@ -40,6 +40,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform isntGrappleable;
     Crosshair crosshair;
 
+    // Double Jump
+    [SerializeField] private int numJumps = 2;
+    private int numJumped;
+
     // Called on component startup.
     private void Start()
     {
@@ -75,7 +79,7 @@ public class PlayerController : MonoBehaviour
         default:
         case Grapple.grappleState.normal:
             HandleMovement();
-            dash.HandleDash(movementVector, transform, characterController, isGrounded);
+            dash.HandleDash(movementVector, transform, characterController, isGrounded, ref velocity.y);
             grapple.HandleGrappleStart();
             break;
         case Grapple.grappleState.shoot:
@@ -102,10 +106,7 @@ public class PlayerController : MonoBehaviour
 
         movementVector = Vector3.ClampMagnitude(transform.right * horizontalInput + transform.forward * verticalInput, 1.0f);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
+        HandleJump();
 
         velocity.y += gravity * Time.deltaTime;
 
@@ -125,6 +126,20 @@ public class PlayerController : MonoBehaviour
             {
                 velocityMomentum = Vector3.zero;
             }
+        }
+    }
+
+    void HandleJump()
+    {
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            numJumped = 0;
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        if (Input.GetButtonDown("Jump") && !isGrounded)
+        {
+            if (++numJumped < numJumps) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
 }
