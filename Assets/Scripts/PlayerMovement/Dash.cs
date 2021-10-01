@@ -20,7 +20,7 @@ public class Dash
         this.maxDashAttempts = maxDashAttempts;
     }
 
-    public void HandleDash(Vector3 movementVector, Transform transform, CharacterController characterController, bool isGrounded)
+    public void HandleDash(Vector3 movementVector, Transform transform, CharacterController characterController, bool isGrounded, ref float velocityY)
     {
         bool isTryingToDash = Input.GetButtonDown("Dash");
 
@@ -34,6 +34,8 @@ public class Dash
 
         if (isDashing)
         {
+            velocityY = 0.0f;
+
             // If the dashtime hasn't elapsed.
             if (Time.time - dashStartTime <= dashLength)
             {
