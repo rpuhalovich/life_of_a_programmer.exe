@@ -17,8 +17,6 @@ public class Grapple
         normal, shoot, launch
     }
 
-    //private 
-
     public Grapple(Camera playerCamera, GrappleFOV fov, Transform grappleLine, LayerMask grappleable, float maxGrappleDist)
     {
         this.fov = fov;

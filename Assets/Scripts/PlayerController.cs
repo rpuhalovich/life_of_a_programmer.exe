@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Player Mouse Settings
+    [Header("Mouse Settings")]
+    [SerializeField] private Transform mainCamera;
+    [SerializeField] private float mouseSensitivity = 250.0f;
+    MouseLook mouseLook;
+    
     // Player Movement
-    [SerializeField] private float speed = 12f;
+    [Header("Movement")]
+    [SerializeField] private float speed = 12.0f;
     [SerializeField] private float gravity = -19.62f;
-    [SerializeField] private float jumpHeight = 2f;
+    [SerializeField] private float jumpHeight = 2.0f;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundMask;
@@ -14,7 +21,12 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    // Double Jump
+    [SerializeField] private int numJumps = 2;
+    private int numJumped;
+
     // Dash
+    [Header("Dash")]
     [SerializeField] private float dashSpeed = 30.0f;
     [SerializeField] private float dashLength = 0.2f;
     [SerializeField] private float dashResetTime = 2f;
@@ -23,6 +35,7 @@ public class PlayerController : MonoBehaviour
     Dash dash;
 
     // Grapple
+    [Header("Grappling Gun")]
     [SerializeField] private float maxGrappleDist = 50.0f;
     [SerializeField] private Transform grappleLine;
     [SerializeField] private LayerMask grappleable;
@@ -33,16 +46,27 @@ public class PlayerController : MonoBehaviour
     Camera playerCamera;
     GrappleFOV fov;
     Vector3 velocityMomentum;
-    LineRenderer lineRenderer;
     
     // Grapple Crosshair
+    [Header("Crosshair Grapple Interaction")]
     [SerializeField] private Transform isGrappleable;
     [SerializeField] private Transform isntGrappleable;
     Crosshair crosshair;
 
-    // Double Jump
-    [SerializeField] private int numJumps = 2;
-    private int numJumped;
+    // Wall Run
+    [Header("Wall Run")]
+    [SerializeField] private float minHeight = 4.0f;
+    [SerializeField] private float maxWallDistance = 1.4f;
+    [SerializeField] private float wallRunForce = 3.0f;
+    [SerializeField] private float maxWallRunSpeed = 25.0f;
+    [SerializeField] private float maxWallRunAngle = 20.0f;
+    [SerializeField] private float sideWallJumpMultiplier = 3.0f;
+    [SerializeField] [Range(0,2)] private int jumpRefresh = 0;
+    [SerializeField] private LayerMask wallRunable;
+    KeyCode right = KeyCode.D;
+    KeyCode left = KeyCode.A;
+    KeyCode straight = KeyCode.W;
+    WallRun wallRun;
 
     // Called on component startup.
     private void Start()
@@ -57,10 +81,15 @@ public class PlayerController : MonoBehaviour
             Physics.IgnoreCollision(this.GetComponent<Collider>(), obj.GetComponent<Collider>());
         }
         Physics.IgnoreCollision(this.GetComponent<Collider>(), grappleParent);
+
+        wallRun = new WallRun(mainCamera, minHeight, maxWallDistance, wallRunForce, maxWallRunSpeed, maxWallRunAngle, jumpRefresh, wallRunable);
     }
 
     private void Awake()
     {
+        mouseLook = new MouseLook(mainCamera, mouseSensitivity, maxWallRunAngle);
+        mouseLook.MouseStart();
+
         playerCamera = transform.Find("Main Camera").GetComponent<Camera>();
         fov = playerCamera.GetComponent<GrappleFOV>();
         grappleLine.gameObject.SetActive(false);
@@ -72,12 +101,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         crosshair.checkGrappleableCrosshair();
+        wallRun.CheckWalls(transform, ref numJumped);
+        mouseLook.HandleMouse(transform, wallRun.IsWallRunning(), wallRun.IsWallRight(), wallRun.IsWallLeft());
 
         // checks on the grapple state before determining what the player can handle per frame
         switch (grapple.State())
         {
         default:
         case Grapple.grappleState.normal:
+            wallRun.HandleWallRun(transform, ref movementVector, groundCheck, groundDistance, groundMask, right, left, straight);
             HandleMovement();
             dash.HandleDash(movementVector, transform, characterController, isGrounded, ref velocity.y);
             grapple.HandleGrappleStart();
@@ -98,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded && velocity.y < 0.0f)
         {
-            velocity.y = -2f;
+            velocity.y = 0.0f;
         }
 
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -108,13 +140,16 @@ public class PlayerController : MonoBehaviour
 
         HandleJump();
 
-        velocity.y += gravity * Time.deltaTime;
-
         // adds momentum from grapple launches (if any)
         movementVector += velocityMomentum;
 
         controller.Move(movementVector * speed * Time.deltaTime);
-        controller.Move(velocity * Time.deltaTime);
+        // only add gravity when not wall running
+        if (!wallRun.IsWallRunning())
+        {
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+        }
 
         // slowing down the momentum
         if (velocityMomentum.magnitude >= 0.0f)
@@ -131,15 +166,46 @@ public class PlayerController : MonoBehaviour
 
     void HandleJump()
     {
+        // first grounded jump
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             numJumped = 0;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
+        // double jump
         if (Input.GetButtonDown("Jump") && !isGrounded)
         {
             if (++numJumped < numJumps) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        // jump after a wall run
+        if (Input.GetButtonDown("Jump") && wallRun.IsWallRunning())
+        {
+            // regular jump if player not going to the opposite direction of the wall
+            if ((!Input.GetKey(right) && wallRun.IsWallRight()) || (!Input.GetKey(left) && wallRun.IsWallLeft()))
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+
+            // add some downward force regardless of the direction of the wall jump
+            if ((Input.GetKey(right) || Input.GetKey(left)) && (wallRun.IsWallRight() || wallRun.IsWallLeft()))
+            {
+                velocity += -transform.up * jumpHeight;
+            }
+            // sideways jump
+            if (Input.GetKey(left) && wallRun.IsWallRight()) 
+            {
+                movementVector += -transform.right * jumpHeight * sideWallJumpMultiplier;
+            }
+            if (Input.GetKey(right) && wallRun.IsWallLeft())
+            {
+                movementVector += transform.right * jumpHeight * sideWallJumpMultiplier;
+            }
+
+            // let player have numJumps - 1 remaining jumps left and add some forward force
+            numJumped = 1;
+            movementVector += transform.forward * jumpHeight;
         }
     }
 }
