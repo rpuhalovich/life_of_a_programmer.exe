@@ -20,7 +20,7 @@ public class Dash
         this.maxDashAttempts = maxDashAttempts;
     }
 
-    public void HandleDash(Vector3 movementVector, Transform transform, CharacterController characterController, bool isGrounded)
+    public void HandleDash(Vector3 movementVector, Transform transform, CharacterController characterController, bool isGrounded, ref float velocityY)
     {
         bool isTryingToDash = Input.GetButtonDown("Dash");
 
@@ -34,17 +34,23 @@ public class Dash
 
         if (isDashing)
         {
+            velocityY = 0.0f;
+
             // If the dashtime hasn't elapsed.
             if (Time.time - dashStartTime <= dashLength)
             {
                 // If the player isn't inputting anything.
                 if (movementVector.Equals(Vector3.zero))
                 {
-                    characterController.Move(transform.forward * dashSpeed * Time.deltaTime);
+                    Vector3 trans = transform.forward.normalized;
+                    trans.y = 0.0f;
+                    characterController.Move(trans * dashSpeed * Time.deltaTime);
                 }
                 else
                 {
-                    characterController.Move(movementVector.normalized * dashSpeed * Time.deltaTime);
+                    Vector3 move = movementVector.normalized;
+                    move.y = 0.0f;
+                    characterController.Move(move * dashSpeed * Time.deltaTime);
                 }
             }
             else
