@@ -18,14 +18,18 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
 
     // Dash
-    Dash dash;
     [SerializeField] private float dashSpeed = 30.0f;
     [SerializeField] private float dashLength = 0.2f;
     [SerializeField] private float dashResetTime = 2f;
     [SerializeField] private int maxDashAttempts = 1;
     CharacterController characterController;
+    Dash dash;
 
     // Grapple
+    [SerializeField] private float maxGrappleDist = 50.0f;
+    [SerializeField] private Transform grappleLine;
+    [SerializeField] private LayerMask grappleable;
+    [SerializeField] private Collider grappleParent;
     const float NORMAL_FOV = 60.0f;
     const float GRAPPLE_FOV = 100.0f;
     Grapple grapple;
@@ -33,19 +37,25 @@ public class PlayerController : MonoBehaviour
     GrappleFOV fov;
     Vector3 velocityMomentum;
     LineRenderer lineRenderer;
-    [SerializeField] private float maxGrappleDist = 50.0f;
-    [SerializeField] private Transform grappleLine;
-    [SerializeField] private LayerMask grappleable;
+    
     // Grapple Crosshair
-    Crosshair crosshair;
     [SerializeField] private Transform isGrappleable;
     [SerializeField] private Transform isntGrappleable;
+    Crosshair crosshair;
 
     // Called on component startup.
     private void Start()
     {
         this.characterController = GetComponent<CharacterController>();
         dash = new Dash(dashSpeed, dashLength, dashResetTime, maxDashAttempts);
+
+        // Get grapple objects and disable their collision with the player.
+        Collider[] grappleChildren = grappleParent.GetComponentsInChildren<Collider>();
+        foreach(Collider obj in grappleChildren)
+        {
+            Physics.IgnoreCollision(this.GetComponent<Collider>(), obj.GetComponent<Collider>());
+        }
+        Physics.IgnoreCollision(this.GetComponent<Collider>(), grappleParent);
     }
 
     private void Awake()

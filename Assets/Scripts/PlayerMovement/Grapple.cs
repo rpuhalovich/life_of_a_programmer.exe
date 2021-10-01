@@ -17,6 +17,8 @@ public class Grapple
         normal, shoot, launch
     }
 
+    //private 
+
     public Grapple(Camera playerCamera, GrappleFOV fov, Transform grappleLine, LayerMask grappleable, float maxGrappleDist)
     {
         this.fov = fov;
@@ -35,7 +37,8 @@ public class Grapple
             if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit, maxGrappleDist, grappleable))
             {
                 // sets grapple position, allows the grapple line to be seen, and initiates the grapple launch state
-                grapplePos = rayHit.point;
+                //grapplePos = rayHit.point;
+                grapplePos = rayHit.collider.bounds.center;
                 grappleLineSize = 0.0f;
                 grappleLine.gameObject.SetActive(true);
                 grappleLine.localScale = Vector3.zero;
