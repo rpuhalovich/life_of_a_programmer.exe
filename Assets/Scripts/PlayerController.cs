@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -18,14 +15,18 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
 
     // Dash
-    Dash dash;
     [SerializeField] private float dashSpeed = 30.0f;
     [SerializeField] private float dashLength = 0.2f;
     [SerializeField] private float dashResetTime = 2f;
     [SerializeField] private int maxDashAttempts = 1;
     CharacterController characterController;
+    Dash dash;
 
     // Grapple
+    [SerializeField] private float maxGrappleDist = 50.0f;
+    [SerializeField] private Transform grappleLine;
+    [SerializeField] private LayerMask grappleable;
+    [SerializeField] private Collider grappleParent;
     const float NORMAL_FOV = 60.0f;
     const float GRAPPLE_FOV = 100.0f;
     Grapple grapple;
@@ -33,13 +34,11 @@ public class PlayerController : MonoBehaviour
     GrappleFOV fov;
     Vector3 velocityMomentum;
     LineRenderer lineRenderer;
-    [SerializeField] private float maxGrappleDist = 50.0f;
-    [SerializeField] private Transform grappleLine;
-    [SerializeField] private LayerMask grappleable;
+    
     // Grapple Crosshair
-    Crosshair crosshair;
     [SerializeField] private Transform isGrappleable;
     [SerializeField] private Transform isntGrappleable;
+    Crosshair crosshair;
 
     // Double Jump
     [SerializeField] private int numJumps = 2;
@@ -50,6 +49,14 @@ public class PlayerController : MonoBehaviour
     {
         this.characterController = GetComponent<CharacterController>();
         dash = new Dash(dashSpeed, dashLength, dashResetTime, maxDashAttempts);
+
+        // Get grapple objects and disable their collision with the player.
+        Collider[] grappleChildren = grappleParent.GetComponentsInChildren<Collider>();
+        foreach(Collider obj in grappleChildren)
+        {
+            Physics.IgnoreCollision(this.GetComponent<Collider>(), obj.GetComponent<Collider>());
+        }
+        Physics.IgnoreCollision(this.GetComponent<Collider>(), grappleParent);
     }
 
     private void Awake()
@@ -89,7 +96,10 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0.0f) velocity.y = -2f;
+        if (isGrounded && velocity.y < 0.0f)
+        {
+            velocity.y = -2f;
+        }
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
