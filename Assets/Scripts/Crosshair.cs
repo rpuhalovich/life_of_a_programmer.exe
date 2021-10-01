@@ -10,7 +10,8 @@ public class Crosshair
     private Transform isGrappleable;
     private Transform isntGrappleable;
 
-    public Crosshair(Camera playerCamera, float maxGrappleDist, LayerMask grappleable, Transform isGrappleable, Transform isntGrappleable) {
+    public Crosshair(Camera playerCamera, float maxGrappleDist, LayerMask grappleable, Transform isGrappleable, Transform isntGrappleable)
+    {
         this.playerCamera = playerCamera;
         this.maxGrappleDist = maxGrappleDist;
         this.grappleable = grappleable;
@@ -19,12 +20,15 @@ public class Crosshair
     }
 
     // function changes the crosshair to distinguish if player is able to execute the grapple move
-    public void checkGrappleableCrosshair() {
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit, maxGrappleDist, grappleable)) {
+    public void checkGrappleableCrosshair()
+    {
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit, maxGrappleDist, grappleable))
+        {
             isGrappleable.gameObject.SetActive(true);
             isntGrappleable.gameObject.SetActive(false);
         }
-        else {
+        else
+        {
             isGrappleable.gameObject.SetActive(false);
             isntGrappleable.gameObject.SetActive(true);
         }

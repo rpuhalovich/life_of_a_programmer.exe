@@ -9,19 +9,22 @@ public class GrappleFOV : MonoBehaviour
     private float grappleFOV;
     private float currentFOV;
 
-    private void Awake() {
+    private void Awake()
+    {
         playerCamera = GetComponent<Camera>();
         grappleFOV = playerCamera.fieldOfView;
         currentFOV = grappleFOV;
     }
 
-    private void Update() {
+    private void Update()
+    {
         float fovSpeed = 5.0f;
         currentFOV = Mathf.Lerp(currentFOV, grappleFOV, Time.deltaTime * fovSpeed);
         playerCamera.fieldOfView = currentFOV;
     }
 
-    public void SetFOV(float grappleFOV) {
+    public void SetFOV(float grappleFOV)
+    {
         this.grappleFOV = grappleFOV;
     }
 }

@@ -48,7 +48,8 @@ public class PlayerController : MonoBehaviour
         dash = new Dash(dashSpeed, dashLength, dashResetTime, maxDashAttempts);
     }
 
-    private void Awake() {
+    private void Awake()
+    {
         playerCamera = transform.Find("Main Camera").GetComponent<Camera>();
         fov = playerCamera.GetComponent<GrappleFOV>();
         grappleLine.gameObject.SetActive(false);
@@ -62,20 +63,21 @@ public class PlayerController : MonoBehaviour
         crosshair.checkGrappleableCrosshair();
 
         // checks on the grapple state before determining what the player can handle per frame
-        switch (grapple.State()) {
-            default:
-            case Grapple.grappleState.normal:
-                HandleMovement();
-                dash.HandleDash(movementVector, transform, characterController, isGrounded);
-                grapple.HandleGrappleStart();
-                break;
-            case Grapple.grappleState.shoot:
-                HandleMovement();
-                grapple.HandleGrappleShoot(transform, GRAPPLE_FOV);
-                break;
-            case Grapple.grappleState.launch:
-                grapple.HandleGrappleLaunch(controller, transform, ref velocity, ref velocityMomentum, jumpHeight, NORMAL_FOV);
-                break;
+        switch (grapple.State())
+        {
+        default:
+        case Grapple.grappleState.normal:
+            HandleMovement();
+            dash.HandleDash(movementVector, transform, characterController, isGrounded);
+            grapple.HandleGrappleStart();
+            break;
+        case Grapple.grappleState.shoot:
+            HandleMovement();
+            grapple.HandleGrappleShoot(transform, GRAPPLE_FOV);
+            break;
+        case Grapple.grappleState.launch:
+            grapple.HandleGrappleLaunch(controller, transform, ref velocity, ref velocityMomentum, jumpHeight, NORMAL_FOV);
+            break;
         }
     }
 
@@ -107,11 +109,13 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         // slowing down the momentum
-        if (velocityMomentum.magnitude >= 0.0f) {
+        if (velocityMomentum.magnitude >= 0.0f)
+        {
             float dragEffect = 3.0f;
             velocityMomentum -= velocityMomentum * dragEffect * Time.deltaTime;
 
-            if (velocityMomentum.magnitude < 0.0f) {
+            if (velocityMomentum.magnitude < 0.0f)
+            {
                 velocityMomentum = Vector3.zero;
             }
         }

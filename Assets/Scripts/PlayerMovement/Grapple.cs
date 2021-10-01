@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Grapple
@@ -14,23 +12,28 @@ public class Grapple
     private Vector3 grapplePos;
     private float grappleLineSize;
     private grappleState state;
-    public enum grappleState {
+    public enum grappleState
+    {
         normal, shoot, launch
     }
 
-    public Grapple(Camera playerCamera, GrappleFOV fov, Transform grappleLine, LayerMask grappleable, float maxGrappleDist) {
-        this.playerCamera = playerCamera;
+    public Grapple(Camera playerCamera, GrappleFOV fov, Transform grappleLine, LayerMask grappleable, float maxGrappleDist)
+    {
         this.fov = fov;
+        this.playerCamera = playerCamera;
         this.grappleLine = grappleLine;
         this.grappleable = grappleable;
         this.maxGrappleDist = maxGrappleDist;
         this.state = grappleState.normal;
     }
 
-    public void HandleGrappleStart() {
-        if (Input.GetMouseButtonDown(0)) {
+    public void HandleGrappleStart()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
             // if there is a 'grappleable' object within the max grapple distance, then proceed
-            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit, maxGrappleDist, grappleable)) {
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit, maxGrappleDist, grappleable))
+            {
                 // sets grapple position, allows the grapple line to be seen, and initiates the grapple launch state
                 grapplePos = rayHit.point;
                 grappleLineSize = 0.0f;
@@ -42,7 +45,8 @@ public class Grapple
     }
 
     // has the player shoot out the grappling line
-    public void HandleGrappleShoot(Transform transform, float  GRAPPLE_FOV) {
+    public void HandleGrappleShoot(Transform transform, float  GRAPPLE_FOV)
+    {
         grappleLine.LookAt(grapplePos);
 
         float shootSpeed = 150.0f;
@@ -51,14 +55,16 @@ public class Grapple
         grappleLine.localScale = new Vector3(0.1f, 0.1f, grappleLineSize);
 
         // when the grappling line becomes more than the distance to the grapple position, change state
-        if (grappleLineSize >= Vector3.Distance(transform.position, grapplePos)) {
+        if (grappleLineSize >= Vector3.Distance(transform.position, grapplePos))
+        {
             state = grappleState.launch;
             fov.SetFOV(GRAPPLE_FOV);
         }
     }
 
     // launches the player towards the grapple position
-    public void HandleGrappleLaunch(CharacterController controller, Transform transform, ref Vector3 velocity, ref Vector3 velocityMomentum, float jumpHeight, float NORMAL_FOV) {
+    public void HandleGrappleLaunch(CharacterController controller, Transform transform, ref Vector3 velocity, ref Vector3 velocityMomentum, float jumpHeight, float NORMAL_FOV)
+    {
         grappleLine.LookAt(grapplePos);
         Vector3 grappleDir = (grapplePos - transform.position).normalized;
 
@@ -69,7 +75,8 @@ public class Grapple
         // used to indicate if centre of player is within this distance of the grapple position
         float reachedGrapplePos = 2.0f;
         // if player reaches the end of the grapple position
-        if (Vector3.Distance(transform.position, grapplePos) < reachedGrapplePos) {
+        if (Vector3.Distance(transform.position, grapplePos) < reachedGrapplePos)
+        {
             float momentumSpeed = 0.15f;
             velocityMomentum = grappleDir * launchSpeed * momentumSpeed;
             velocityMomentum += Vector3.up * jumpHeight;
@@ -77,7 +84,8 @@ public class Grapple
         }
 
         // cancel the grapple mid way
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
             ResetGrapple(ref state, ref velocity, ref grappleLine, NORMAL_FOV);
         }
 
@@ -90,12 +98,14 @@ public class Grapple
         }*/
     }
 
-    void ResetGravity(ref Vector3 velocity) {
+    void ResetGravity(ref Vector3 velocity)
+    {
         velocity.y = -2.0f;
     }
 
     // resets the grapple state, gravity after the grapple, and doesn't show the grapple line
-    void ResetGrapple(ref grappleState state, ref Vector3 velocity, ref Transform grappleLine, float NORMAL_FOV) {
+    void ResetGrapple(ref grappleState state, ref Vector3 velocity, ref Transform grappleLine, float NORMAL_FOV)
+    {
         state = grappleState.normal;
         ResetGravity(ref velocity);
         grappleLine.gameObject.SetActive(false);
@@ -103,7 +113,8 @@ public class Grapple
     }
 
     // returns the current grapple state
-    public grappleState State() {
+    public grappleState State()
+    {
         return this.state;
     }
 }
