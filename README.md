@@ -103,3 +103,9 @@ public class firstPersonController : MonoBehaviour
 Creating A Dash Ability: https://www.youtube.com/watch?v=QyqSoz2ivOk
 
 Kenney Prototype Textures: https://www.kenney.nl/assets/prototype-textures
+
+## Using the auto formatter
+
+Install astyle using Chocolatey (https://chocolatey.org/install) using `choco install -y astyle`.
+
+Then run `.\Scripts\astyle.bat`.
