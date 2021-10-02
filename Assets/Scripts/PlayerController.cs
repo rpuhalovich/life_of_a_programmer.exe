@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Mouse Settings")]
+    [Header("Player Settings")]
     [SerializeField] private Transform mainCamera;
     [SerializeField] private float mouseSensitivity = 250.0f;
     MouseLook mouseLook;
@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform grappleLine;
     [SerializeField] private LayerMask grappleable;
     [SerializeField] private Collider grappleParent;
-    const float NORMAL_FOV = 60.0f;
-    const float GRAPPLE_FOV = 100.0f;
+    [SerializeField] [Range(0,360)] private float normalFOV = 60.0f;
+    [SerializeField] [Range(0,360)] private float grappleFOV = 100.0f;
     Grapple grapple;
     Camera playerCamera;
     GrappleFOV fov;
@@ -112,10 +112,10 @@ public class PlayerController : MonoBehaviour
             break;
         case Grapple.grappleState.shoot:
             HandleMovement();
-            grapple.HandleGrappleShoot(transform, GRAPPLE_FOV);
+            grapple.HandleGrappleShoot(transform, grappleFOV);
             break;
         case Grapple.grappleState.launch:
-            grapple.HandleGrappleLaunch(controller, transform, ref velocity, ref velocityMomentum, jumpHeight, NORMAL_FOV);
+            grapple.HandleGrappleLaunch(controller, transform, ref velocity, ref velocityMomentum, jumpHeight, normalFOV);
             break;
         }
     }
