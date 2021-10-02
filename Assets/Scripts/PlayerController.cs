@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
         crosshair = new Crosshair(playerCamera, maxGrappleDist, grappleable, isGrappleable, isntGrappleable);
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         // If the collision object is a boost pad.
         if (other.gameObject.layer == 8)
