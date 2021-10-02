@@ -98,14 +98,16 @@ public class firstPersonController : MonoBehaviour
 }
 ```
 
+## Using the auto formatter
+
+Install astyle using Chocolatey (https://chocolatey.org/install) using `choco install -y astyle`.
+
+Then run `.\Scripts\astyle.bat`.
+
 ## Resources
 
 Creating A Dash Ability: https://www.youtube.com/watch?v=QyqSoz2ivOk
 
 Kenney Prototype Textures: https://www.kenney.nl/assets/prototype-textures
 
-## Using the auto formatter
-
-Install astyle using Chocolatey (https://chocolatey.org/install) using `choco install -y astyle`.
-
-Then run `.\Scripts\astyle.bat`.
+Lens Dirt: https://gitlab.labranet.jamk.fi/K8721/unity/-/tree/6dd55de75c1b9f1a7239dab5ec6ffc2badfa09d7/SurvivalShooter/Assets/PostProcessing/Textures/Lens%20Dirt

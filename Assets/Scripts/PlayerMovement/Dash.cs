@@ -22,6 +22,7 @@ public class Dash
 
     public void HandleDash(Vector3 movementVector, Transform transform, CharacterController characterController, bool isGrounded, ref float velocityY)
     {
+        //bool isTryingToDash = Input.GetButtonDown("Dash") || Input.GetButtonDown("Crouch"); // TODO: Not great putting input code here...
         bool isTryingToDash = Input.GetButtonDown("Dash");
 
         if (isTryingToDash && !isDashing)

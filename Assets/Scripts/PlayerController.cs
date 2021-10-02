@@ -31,6 +31,15 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
     Dash dash;
 
+    [Header("Crouch Dash")]
+    [SerializeField] private float crouchDashSpeed = 50.0f;
+    [SerializeField] private float crouchDashLength = 0.2f;
+    [SerializeField] private float crouchDashResetTime = 0.0f;
+    [SerializeField] private int maxCrouchDashAttempts = 1;
+    [SerializeField] private float reducedHeight = 0.7f;
+    private float origHeight;
+    Dash crouchDash;
+
     [Header("Grappling Gun")]
     [SerializeField] private float maxGrappleDist = 50.0f;
     [SerializeField] private Transform grappleLine;
@@ -64,11 +73,22 @@ public class PlayerController : MonoBehaviour
     KeyCode straight = KeyCode.W;
     WallRun wallRun;
 
+    [Header("Boost Pad")]
+    [SerializeField] private LayerMask boostPadLayer;
+    [SerializeField] private float boostAmt = 50.0f;
+    BoostPad boostPad;
+
     // Called on component startup.
     private void Start()
     {
         this.characterController = GetComponent<CharacterController>();
+
+        // Crouch Height
+        origHeight = this.characterController.height;
+
+        // Dash
         dash = new Dash(dashSpeed, dashLength, dashResetTime, maxDashAttempts);
+        crouchDash = new Dash(crouchDashSpeed, crouchDashLength, crouchDashResetTime, maxCrouchDashAttempts);
 
         // Get grapple objects and disable their collision with the player.
         Collider[] grappleChildren = grappleParent.GetComponentsInChildren<Collider>();
@@ -79,6 +99,8 @@ public class PlayerController : MonoBehaviour
         Physics.IgnoreCollision(this.GetComponent<Collider>(), grappleParent);
 
         wallRun = new WallRun(mainCamera, minHeight, maxWallDistance, wallRunForce, maxWallRunSpeed, maxWallRunAngle, jumpRefresh, wallRunable);
+
+        boostPad = new BoostPad(boostAmt, boostPadLayer);
     }
 
     private void Awake()
@@ -86,7 +108,7 @@ public class PlayerController : MonoBehaviour
         mouseLook = new MouseLook(mainCamera, mouseSensitivity, maxWallRunAngle, rotateSpeedMultiplier);
         mouseLook.MouseStart();
 
-        playerCamera = transform.Find("Main Camera").GetComponent<Camera>();
+        playerCamera = transform.Find("Camera").GetComponent<Camera>();
         fov = playerCamera.GetComponent<GrappleFOV>();
         grappleLine.gameObject.SetActive(false);
         grapple = new Grapple(playerCamera, fov, grappleLine, grappleable, maxGrappleDist);
@@ -105,11 +127,27 @@ public class PlayerController : MonoBehaviour
         {
         default:
         case Grapple.grappleState.normal:
+        {
             wallRun.HandleWallRun(transform, ref movementVector, groundCheck, groundDistance, groundMask, right, left, straight);
             HandleMovement();
             dash.HandleDash(movementVector, transform, characterController, isGrounded, ref velocity.y);
+
+            boostPad.HandleBoost(transform, characterController.height, ref velocity.y);
+
+            // Uncomment if you wanna have a go at making the crouch dash work.
+            //if (Input.GetButtonDown("Crouch"))
+            //{
+            //    HandleCrouchDown();
+            //    crouchDash.HandleDash(movementVector, transform, characterController, isGrounded, ref velocity.y);
+            //}
+            //if (Input.GetButtonUp("Crouch"))
+            //{
+            //    HandleCrouchUp();
+            //}
+
             grapple.HandleGrappleStart();
             break;
+        }
         case Grapple.grappleState.shoot:
             HandleMovement();
             grapple.HandleGrappleShoot(transform, grappleFOV);
@@ -203,5 +241,21 @@ public class PlayerController : MonoBehaviour
             numJumped = 1;
             movementVector += transform.forward * jumpHeight;
         }
+    }
+
+    void HandleCrouchDown()
+    {
+        Debug.Log("Reducing Height!");
+        var newYpos = this.mainCamera.localPosition;
+        newYpos.y = reducedHeight - 0.2f;
+        this.mainCamera.localPosition = newYpos;
+
+        this.characterController.height = reducedHeight;
+    }
+
+    void HandleCrouchUp()
+    {
+        Debug.Log("Increasing Height!");
+        this.characterController.height = origHeight;
     }
 }

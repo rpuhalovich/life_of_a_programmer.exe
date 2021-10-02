@@ -11,10 +11,10 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Grappleable
-  - Wall Runable
-  - 
-  - 
+  - Grapple
+  - WallRun
+  - BoostPad
+  - Gun
   - 
   - 
   - 
