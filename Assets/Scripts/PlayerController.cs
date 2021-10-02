@@ -64,6 +64,12 @@ public class PlayerController : MonoBehaviour
     KeyCode straight = KeyCode.W;
     WallRun wallRun;
 
+    [Header("Boost Pad")]
+    [SerializeField] private float boostAmt = 50.0f;
+    [SerializeField] private float boostDelay = 0.5f;
+    BoostPad boostPad;
+
+
     // Called on component startup.
     private void Start()
     {
@@ -79,6 +85,8 @@ public class PlayerController : MonoBehaviour
         Physics.IgnoreCollision(this.GetComponent<Collider>(), grappleParent);
 
         wallRun = new WallRun(mainCamera, minHeight, maxWallDistance, wallRunForce, maxWallRunSpeed, maxWallRunAngle, jumpRefresh, wallRunable);
+
+        boostPad = new BoostPad(boostAmt, boostDelay);
     }
 
     private void Awake()
@@ -91,6 +99,15 @@ public class PlayerController : MonoBehaviour
         grappleLine.gameObject.SetActive(false);
         grapple = new Grapple(playerCamera, fov, grappleLine, grappleable, maxGrappleDist);
         crosshair = new Crosshair(playerCamera, maxGrappleDist, grappleable, isGrappleable, isntGrappleable);
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        // If the collision object is a boost pad.
+        if (other.gameObject.layer == 8)
+        {
+            boostPad.HandleBoost(ref velocity.y);
+        }
     }
 
     // Update is called once per frame.
