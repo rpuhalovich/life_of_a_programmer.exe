@@ -108,21 +108,12 @@ public class PlayerController : MonoBehaviour
         mouseLook = new MouseLook(mainCamera, mouseSensitivity, maxWallRunAngle, rotateSpeedMultiplier);
         mouseLook.MouseStart();
 
-        playerCamera = transform.Find("Main Camera").GetComponent<Camera>();
+        playerCamera = transform.Find("Camera").GetComponent<Camera>();
         fov = playerCamera.GetComponent<GrappleFOV>();
         grappleLine.gameObject.SetActive(false);
         grapple = new Grapple(playerCamera, fov, grappleLine, grappleable, maxGrappleDist);
         crosshair = new Crosshair(playerCamera, maxGrappleDist, grappleable, isGrappleable, isntGrappleable);
     }
-
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    // If the collision object is a boost pad.
-    //    if (other.gameObject.layer == 8)
-    //    {
-    //        boostPad.HandleBoost(ref velocity.y);
-    //    }
-    //}
 
     // Update is called once per frame.
     void Update()

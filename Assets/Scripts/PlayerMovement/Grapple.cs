@@ -46,7 +46,7 @@ public class Grapple
     }
 
     // has the player shoot out the grappling line
-    public void HandleGrappleShoot(Transform transform, float  GRAPPLE_FOV)
+    public void HandleGrappleShoot(Transform transform, float GRAPPLE_FOV)
     {
         grappleLine.LookAt(grapplePos);
 
