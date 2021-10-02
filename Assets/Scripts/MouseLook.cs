@@ -12,13 +12,17 @@ public class MouseLook
     private float xRotation;
     private float currWallRunAngle;
 
-    public MouseLook(Transform mainCamera, float mouseSensitivity, float maxWallRunAngle)
+    private float rotateSpeedMultiplier;
+
+    public MouseLook(Transform mainCamera, float mouseSensitivity, float maxWallRunAngle, float rotateSpeedMultiplier)
     {
         this.mainCamera = mainCamera;
         this.mouseSensitivity = mouseSensitivity;
         this.maxWallRunAngle = maxWallRunAngle;
         this.currWallRunAngle = 0.0f;
         this.xRotation = 0.0f;
+
+        this.rotateSpeedMultiplier = rotateSpeedMultiplier;
     }
 
     // Start is called before the first frame update
@@ -42,22 +46,22 @@ public class MouseLook
         // rotate the camera anti-clockwise if player is wall running on a wall to their right, capping at the maxWallRunAngle
         if ((Math.Abs(currWallRunAngle) < maxWallRunAngle) && isWallRight)
         {
-            currWallRunAngle += maxWallRunAngle * Time.deltaTime * 2;
+            currWallRunAngle += maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
         }
         // rotate the camera clockwise if a player is wall running on a wall to their left, capping at the maxWallRunAngle
         if ((Math.Abs(currWallRunAngle) < maxWallRunAngle) && isWallLeft)
         {
-            currWallRunAngle -= maxWallRunAngle * Time.deltaTime * 2;
+            currWallRunAngle -= maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
         }
 
         // reverts the camera angle back to normal
         if ((currWallRunAngle > 0) && !isWallRight && !isWallLeft)
         {
-            currWallRunAngle -= maxWallRunAngle * Time.deltaTime * 2;
+            currWallRunAngle -= maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
         }
         if ((currWallRunAngle < 0) && !isWallRight && !isWallLeft)
         {
-            currWallRunAngle += maxWallRunAngle * Time.deltaTime * 2;
+            currWallRunAngle += maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
         }
     }
 }

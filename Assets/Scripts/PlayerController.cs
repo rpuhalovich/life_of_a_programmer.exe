@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Player Mouse Settings
     [Header("Mouse Settings")]
     [SerializeField] private Transform mainCamera;
     [SerializeField] private float mouseSensitivity = 250.0f;
     MouseLook mouseLook;
-    
-    // Player Movement
+
     [Header("Movement")]
     [SerializeField] private float speed = 12.0f;
     [SerializeField] private float gravity = -19.62f;
@@ -25,7 +23,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int numJumps = 2;
     private int numJumped;
 
-    // Dash
     [Header("Dash")]
     [SerializeField] private float dashSpeed = 30.0f;
     [SerializeField] private float dashLength = 0.2f;
@@ -34,7 +31,6 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
     Dash dash;
 
-    // Grapple
     [Header("Grappling Gun")]
     [SerializeField] private float maxGrappleDist = 50.0f;
     [SerializeField] private Transform grappleLine;
@@ -46,14 +42,13 @@ public class PlayerController : MonoBehaviour
     Camera playerCamera;
     GrappleFOV fov;
     Vector3 velocityMomentum;
-    
+
     // Grapple Crosshair
     [Header("Crosshair Grapple Interaction")]
     [SerializeField] private Transform isGrappleable;
     [SerializeField] private Transform isntGrappleable;
     Crosshair crosshair;
 
-    // Wall Run
     [Header("Wall Run")]
     [SerializeField] private float minHeight = 4.0f;
     [SerializeField] private float maxWallDistance = 1.4f;
@@ -61,6 +56,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxWallRunSpeed = 25.0f;
     [SerializeField] private float maxWallRunAngle = 20.0f;
     [SerializeField] private float sideWallJumpMultiplier = 3.0f;
+    [SerializeField] private float rotateSpeedMultiplier = 5.0f;
     [SerializeField] [Range(0,2)] private int jumpRefresh = 0;
     [SerializeField] private LayerMask wallRunable;
     KeyCode right = KeyCode.D;
@@ -87,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        mouseLook = new MouseLook(mainCamera, mouseSensitivity, maxWallRunAngle);
+        mouseLook = new MouseLook(mainCamera, mouseSensitivity, maxWallRunAngle, rotateSpeedMultiplier);
         mouseLook.MouseStart();
 
         playerCamera = transform.Find("Main Camera").GetComponent<Camera>();
@@ -194,7 +190,7 @@ public class PlayerController : MonoBehaviour
                 velocity += -transform.up * jumpHeight;
             }
             // sideways jump
-            if (Input.GetKey(left) && wallRun.IsWallRight()) 
+            if (Input.GetKey(left) && wallRun.IsWallRight())
             {
                 movementVector += -transform.right * jumpHeight * sideWallJumpMultiplier;
             }

@@ -38,7 +38,8 @@ class WallRun
                 StartWallRun(transform, ref movementVector);
             }
         }
-        else {
+        else
+        {
             StopWallRun();
         }
     }
@@ -79,7 +80,7 @@ class WallRun
         {
             StopWallRun();
         }
-        
+
         // reset the number of jumps when wall running
         if (isWallLeft || isWallRight)
         {
@@ -89,7 +90,7 @@ class WallRun
 
     public bool IsWallRunning()
     {
-        return isWallRunning;    
+        return isWallRunning;
     }
 
     public bool IsWallRight()
