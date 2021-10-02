@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Dash
+public class CrouchDash
 {
     private float dashSpeed;
     private int maxDashAttempts;
@@ -12,7 +12,7 @@ public class Dash
     private float dashStartTime;
     private float lastResetTime;
 
-    public Dash(float dashSpeed, float dashLength, float dashResetTime, int maxDashAttempts)
+    public CrouchDash(float dashSpeed, float dashLength, float dashResetTime, int maxDashAttempts)
     {
         this.dashSpeed = dashSpeed;
         this.dashLength = dashLength;
@@ -22,7 +22,7 @@ public class Dash
 
     public void HandleDash(Vector3 movementVector, Transform transform, CharacterController characterController, bool isGrounded, ref float velocityY)
     {
-        bool isTryingToDash = Input.GetButtonDown("Dash") || Input.GetButtonDown("Crouch"); // TODO: Not great putting input code here...
+        bool isTryingToDash = Input.GetButtonDown("Crouch"); // TODO: Not great putting input code here...
 
         if (isTryingToDash && !isDashing)
         {

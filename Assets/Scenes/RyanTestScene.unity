@@ -1960,6 +1960,11 @@ MonoBehaviour:
   dashLength: 0.2
   dashResetTime: 2
   maxDashAttempts: 2
+  crouchDashSpeed: 50
+  crouchDashLength: 0.2
+  crouchDashResetTime: 0
+  maxCrouchDashAttempts: 1
+  reducedHeight: 1.7
   maxGrappleDist: 50
   grappleLine: {fileID: 1020391920}
   grappleable:
@@ -1980,7 +1985,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   boostAmt: 45
-  boostDelay: 0.5
 --- !u!1 &1633183531
 GameObject:
   m_ObjectHideFlags: 0
