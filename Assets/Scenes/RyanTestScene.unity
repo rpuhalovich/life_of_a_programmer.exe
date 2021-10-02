@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74726731}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.61, z: 0.06}
+  m_LocalPosition: {x: 0, y: -1.61, z: 0.093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1081136345}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 108261107}
   - component: {fileID: 108261106}
   - component: {fileID: 108261105}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slope 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ Transform:
   m_LocalScale: {x: 1.2, y: 1.8, z: 1.2}
   m_Children: []
   m_Father: {fileID: 1623994249}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &191931613
 MeshRenderer:
@@ -1240,12 +1240,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5999985, z: 0}
+  m_LocalPosition: {x: 0, y: 1.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 74726732}
   m_Father: {fileID: 1623994249}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -1505,7 +1505,7 @@ GameObject:
   - component: {fileID: 1069748760}
   - component: {fileID: 1069748759}
   - component: {fileID: 1069748758}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slope 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2471,8 +2471,8 @@ Transform:
   m_LocalPosition: {x: -252.1, y: -106.7, z: -129.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 963194228}
   - {fileID: 191931612}
+  - {fileID: 963194228}
   - {fileID: 1229224773}
   - {fileID: 1570994523}
   m_Father: {fileID: 0}
@@ -2518,6 +2518,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   grappleParent: {fileID: 1978778789}
+  normalFOV: 60
+  grappleFOV: 100
   isGrappleable: {fileID: 1239208728}
   isntGrappleable: {fileID: 978928284}
   minHeight: 4
@@ -2547,7 +2549,7 @@ GameObject:
   - component: {fileID: 1633183535}
   - component: {fileID: 1633183534}
   - component: {fileID: 1633183533}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slope 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2805,7 +2807,7 @@ GameObject:
   - component: {fileID: 1775142920}
   - component: {fileID: 1775142919}
   - component: {fileID: 1775142918}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
