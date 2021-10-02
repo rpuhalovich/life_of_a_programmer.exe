@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
     WallRun wallRun;
 
     [Header("Boost Pad")]
+    [SerializeField] private LayerMask boostPadLayer;
     [SerializeField] private float boostAmt = 50.0f;
     BoostPad boostPad;
 
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
         wallRun = new WallRun(mainCamera, minHeight, maxWallDistance, wallRunForce, maxWallRunSpeed, maxWallRunAngle, jumpRefresh, wallRunable);
 
-        boostPad = new BoostPad(boostAmt);
+        boostPad = new BoostPad(boostAmt, boostPadLayer);
     }
 
     private void Awake()
@@ -114,14 +115,14 @@ public class PlayerController : MonoBehaviour
         crosshair = new Crosshair(playerCamera, maxGrappleDist, grappleable, isGrappleable, isntGrappleable);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        // If the collision object is a boost pad.
-        if (other.gameObject.layer == 8)
-        {
-            boostPad.HandleBoost(ref velocity.y);
-        }
-    }
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    // If the collision object is a boost pad.
+    //    if (other.gameObject.layer == 8)
+    //    {
+    //        boostPad.HandleBoost(ref velocity.y);
+    //    }
+    //}
 
     // Update is called once per frame.
     void Update()
@@ -139,6 +140,8 @@ public class PlayerController : MonoBehaviour
             wallRun.HandleWallRun(transform, ref movementVector, groundCheck, groundDistance, groundMask, right, left, straight);
             HandleMovement();
             dash.HandleDash(movementVector, transform, characterController, isGrounded, ref velocity.y);
+
+            boostPad.HandleBoost(transform, characterController.height, ref velocity.y);
 
             // Uncomment if you wanna have a go at making the crouch dash work.
             //if (Input.GetButtonDown("Crouch"))
