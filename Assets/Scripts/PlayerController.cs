@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) || Physics.CheckSphere(groundCheck.position, groundDistance, wallRunable);
 
         if (isGrounded && velocity.y < 0.0f)
         {
