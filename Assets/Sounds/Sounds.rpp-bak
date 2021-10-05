@@ -1,0 +1,429 @@
+<REAPER_PROJECT 0.1 "6.36/win64" 1633404454
+  RIPPLE 0
+  GROUPOVERRIDE 0 0 0
+  AUTOXFADE 1
+  ENVATTACH 1
+  POOLEDENVATTACH 0
+  MIXERUIFLAGS 11 16
+  PEAKGAIN 1
+  FEEDBACK 0
+  PANLAW 1
+  PROJOFFS 0 0 0
+  MAXPROJLEN 0 600
+  GRID 3199 8 0.5 8 1 0 0 0
+  TIMEMODE 1 5 -1 30 0 0 -1
+  VIDEO_CONFIG 0 0 256
+  PANMODE 3
+  CURSOR 180
+  ZOOM 1.72228680936376 0 0
+  VZOOMEX 2 0
+  USE_REC_CFG 0
+  RECMODE 1
+  SMPTESYNC 0 30 100 40 1000 300 0 0 1 0 0
+  LOOP 0
+  LOOPGRAN 0 4
+  RECORD_PATH "Media" ""
+  <RECORD_CFG
+    ZXZhdxgAAA==
+  >
+  <APPLYFX_CFG
+  >
+  RENDER_FILE ""
+  RENDER_PATTERN video_render
+  RENDER_FMT 0 2 44100
+  RENDER_1X 0
+  RENDER_RANGE 2 0 0 18 1000
+  RENDER_RESAMPLE 3 0 1
+  RENDER_ADDTOPROJ 0
+  RENDER_STEMS 0
+  RENDER_DITHER 0
+  TIMELOCKMODE 1
+  TEMPOENVLOCKMODE 1
+  ITEMMIX 0
+  DEFPITCHMODE 589824 0
+  TAKELANE 1
+  SAMPLERATE 44100 0 0
+  <RENDER_CFG
+    ZXZhdxgAAA==
+  >
+  LOCK 1
+  <METRONOME 6 2
+    VOL 0.25 0.125
+    FREQ 800 1600 1
+    BEATLEN 4
+    SAMPLES "" ""
+    PATTERN 2863311530 2863311529
+  >
+  GLOBAL_AUTO -1
+  TEMPO 80 4 4
+  PLAYRATE 1 0 0.25 4
+  SELECTION 138 0
+  SELECTION2 138 0
+  MASTERAUTOMODE 0
+  MASTERTRACKHEIGHT 0 0
+  MASTERPEAKCOL 16576
+  MASTERMUTESOLO 0
+  MASTERTRACKVIEW 0 0.6667 0.511111 0.5 0 -1 0 0 0 0 -1 -1 0
+  MASTERHWOUT 0 0 1 0 0 0 0 -1
+  MASTER_NCH 2 2
+  MASTER_VOLUME 1 0 -1 -1 1
+  MASTER_FX 1
+  MASTER_SEL 0
+  <MASTERPLAYSPEEDENV
+    EGUID {9768E726-2162-4A05-A22B-985997DC620F}
+    ACT 0 -1
+    VIS 0 1 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 0 -1 -1
+  >
+  <TEMPOENVEX
+    EGUID {4CBBF00D-526E-4681-87CD-8E7E733873DD}
+    ACT 0 -1
+    VIS 1 0 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 1 -1 -1
+  >
+  MARKER 1 360 end 0 33554431 1 R {A85CA0E0-C08C-4F46-B0AB-8FFE03EF7CF6}
+  <PROJBAY
+  >
+  <TRACK {9F5CDDC1-5519-44E7-A846-047B50E1901E}
+    NAME music
+    PEAKCOL 33489024
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 1 1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
+    FREEMODE 0
+    SEL 0
+    REC 0 0 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {9F5CDDC1-5519-44E7-A846-047B50E1901E}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {18A7B0DA-0F71-4C0B-9173-3897A3258DCB}
+    NAME "Palm Fires - Internet Crush (REMNANT.exe remix)"
+    PEAKCOL 33489024
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.668639 0 1 0.5 0 -1 0
+    FREEMODE 0
+    SEL 0
+    REC 0 0 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {18A7B0DA-0F71-4C0B-9173-3897A3258DCB}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+    >
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 120
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {3054424E-49AE-49B4-84AB-80899C672E91}
+      IID 18
+      NAME "Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {6717E702-DDA3-42EB-8556-0745EF03CB83}
+      <SOURCE WAVE
+        FILE "Media\Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      >
+    >
+    <ITEM
+      POSITION 120
+      SNAPOFFS 0
+      LENGTH 24
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {21CEFC28-FE78-4886-89C0-9B50FC5DB128}
+      IID 21
+      NAME "Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 120
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {6BAD97D6-05D8-4FE0-B431-4F8E859BEC5E}
+      <SOURCE WAVE
+        FILE "Media\Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      >
+    >
+    <ITEM
+      POSITION 144
+      SNAPOFFS 0
+      LENGTH 99.3749886621315
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {C293A727-E2C9-4B7E-AC40-35DFB51190B7}
+      IID 22
+      NAME "Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 144
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {59594FB4-19DA-4ADD-9A7E-0C31318CCA3B}
+      <SOURCE WAVE
+        FILE "Media\Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      >
+    >
+  >
+  <TRACK {3CDB89C9-357B-4208-ADB7-FD06A1BAC022}
+    NAME "video edit"
+    PEAKCOL 33489024
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 2 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 2 -1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.668639 0 1 0.5 0 -1 0
+    FREEMODE 0
+    SEL 0
+    REC 0 0 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 176 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {3CDB89C9-357B-4208-ADB7-FD06A1BAC022}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+    >
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 48
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {F0225BAA-2870-44F7-B168-F45CB0E8E53D}
+      IID 7
+      NAME "Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {ADBD75B4-A772-4217-90F6-85BC63F4691B}
+      <SOURCE WAVE
+        FILE "Media\Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      >
+    >
+    <ITEM
+      POSITION 48
+      SNAPOFFS 0
+      LENGTH 25.875
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1.1 0 1.8751 1 1 -1 -1
+      MUTE 0 0
+      SEL 0
+      IGUID {3022E9FB-A4AA-4871-823F-8CADF86870FB}
+      IID 20
+      NAME "Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 72
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {C5CDB6DA-BF1F-48D6-B14B-71C7F3D9631C}
+      <SOURCE WAVE
+        FILE "Media\Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      >
+    >
+    <ITEM
+      POSITION 71.9999
+      SNAPOFFS 0
+      LENGTH 24.0001
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1.1 0 1.8751 1 1 -1 -1
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {5CC79C4C-F9D7-4F4D-B76E-23D34A18FDB3}
+      IID 21
+      NAME "Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 119.9999
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {34A3C94C-4859-4A58-83F6-46B346B81612}
+      <SOURCE WAVE
+        FILE "Media\Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      >
+    >
+    <ITEM
+      POSITION 96
+      SNAPOFFS 0
+      LENGTH 12
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {03F764A1-1E62-473D-AEA3-D7D720B89D36}
+      IID 13
+      NAME "Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 144
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {B8F54516-338E-4FEB-BEEC-9C1D97A5C1C9}
+      <SOURCE WAVE
+        FILE "Media\Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      >
+    >
+    <ITEM
+      POSITION 108
+      SNAPOFFS 0
+      LENGTH 24
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {F9341CB3-6E9A-4857-A6FC-29AE152F507E}
+      IID 17
+      NAME "Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 216
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {6C987423-4DE6-4E70-9CAF-058745B76979}
+      <SOURCE WAVE
+        FILE "Media\Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      >
+    >
+    <ITEM
+      POSITION 132
+      SNAPOFFS 0
+      LENGTH 3.3749886621315
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {9E3D47A3-F47C-43E5-A807-E5D45DCBCF63}
+      IID 23
+      NAME "Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 240
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {6ABE0DD2-F4D7-416E-BDA2-6465D3C38976}
+      <SOURCE WAVE
+        FILE "Media\Palm Fires - Internet Crush (REMNANT.exe remix).wav"
+      >
+    >
+  >
+  <TRACK {B59B3B9A-F230-4F98-8C64-EB866122BA06}
+    NAME fx
+    PEAKCOL 23396543
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 1 1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 -1 0
+    FREEMODE 0
+    SEL 0
+    REC 0 0 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {B59B3B9A-F230-4F98-8C64-EB866122BA06}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {19BBD001-0CB2-43B2-9BE3-2A14954F1496}
+    NAME ""
+    PEAKCOL 23396543
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 2 -1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.668639 0 1 0.5 0 -1 0
+    FREEMODE 0
+    SEL 0
+    REC 0 0 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {19BBD001-0CB2-43B2-9BE3-2A14954F1496}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+    >
+  >
+>
