@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class BoostPad
 {
-    private float boostAmt;
+    private float boostYAmt;
+    private float boostForwardAmt;
     private LayerMask boostPadLayer;
 
-    public BoostPad(float boostAmt, LayerMask boostPadLayer)
+    public BoostPad(float boostYAmt, float boostForwardAmt, LayerMask boostPadLayer)
     {
-        this.boostAmt = boostAmt;
+        this.boostYAmt = boostYAmt;
+        this.boostForwardAmt = boostForwardAmt;
         this.boostPadLayer = boostPadLayer;
     }
 
@@ -16,7 +18,8 @@ public class BoostPad
         // 8 is boost layer.
         if (Physics.Raycast(transform.position, -transform.up, playerHeight, boostPadLayer))
         {
-            velocityY = boostAmt;
+            velocityY = boostYAmt;
+            transform.forward += transform.forward * boostForwardAmt;
         }
     }
 }

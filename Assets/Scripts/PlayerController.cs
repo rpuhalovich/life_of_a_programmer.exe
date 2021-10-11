@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    // Double Jump
+    [Header("Double Jump")]
     [SerializeField] private int numJumps = 2;
     private int numJumped;
 
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     GrappleFOV fov;
     Vector3 velocityMomentum;
 
-    // Grapple Crosshair
+    // Grapple Crosshair.
     [Header("Crosshair Grapple Interaction")]
     [SerializeField] private Transform isGrappleable;
     [SerializeField] private Transform isntGrappleable;
@@ -75,7 +75,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Boost Pad")]
     [SerializeField] private LayerMask boostPadLayer;
-    [SerializeField] private float boostAmt = 50.0f;
+    [SerializeField] private float boostYAmt = 50.0f;
+    [SerializeField] private float boostForwardAmt = 10.0f;
     BoostPad boostPad;
 
     // Called on component startup.
@@ -91,16 +92,19 @@ public class PlayerController : MonoBehaviour
         crouchDash = new Dash(crouchDashSpeed, crouchDashLength, crouchDashResetTime, maxCrouchDashAttempts);
 
         // Get grapple objects and disable their collision with the player.
-        Collider[] grappleChildren = grappleParent.GetComponentsInChildren<Collider>();
-        foreach(Collider obj in grappleChildren)
+        if (grappleParent)
         {
-            Physics.IgnoreCollision(this.GetComponent<Collider>(), obj.GetComponent<Collider>());
+            Collider[] grappleChildren = grappleParent.GetComponentsInChildren<Collider>();
+            foreach(Collider obj in grappleChildren)
+            {
+                Physics.IgnoreCollision(this.GetComponent<Collider>(), obj.GetComponent<Collider>());
+            }
+            Physics.IgnoreCollision(this.GetComponent<Collider>(), grappleParent);
         }
-        Physics.IgnoreCollision(this.GetComponent<Collider>(), grappleParent);
 
         wallRun = new WallRun(mainCamera, minHeight, maxWallDistance, wallRunForce, maxWallRunSpeed, maxWallRunAngle, jumpRefresh, wallRunable);
 
-        boostPad = new BoostPad(boostAmt, boostPadLayer);
+        boostPad = new BoostPad(boostYAmt, boostForwardAmt, boostPadLayer);
     }
 
     private void Awake()
