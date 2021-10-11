@@ -5,6 +5,7 @@ using System;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private Sound[] sounds;
+    [SerializeField] private string[] soundNames;
 
     void Awake()
     {
@@ -18,7 +19,15 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayerController(string name)
+    private void Start()
+    {
+        foreach (string sn in soundNames)
+        {
+            Play(sn);
+        }
+    }
+
+    public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
