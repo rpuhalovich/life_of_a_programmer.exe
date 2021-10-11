@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7209914041625815425}
   - component: {fileID: 7209914041625815424}
+  - component: {fileID: 2499598313794296837}
   - component: {fileID: 7209914041625815426}
   m_Layer: 0
   m_Name: Player
@@ -54,6 +55,32 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2499598313794296837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209914041625815439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda89d84cbb5b864586ecb8be1277c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: 893c735247d77184aa9b3d3f13a2b2cd, type: 3}
+    name: running
+    volume: 0.4
+    pitch: 0
+    loop: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 632c310fbd246b94396229fe8f5503b9, type: 3}
+    name: grapple
+    volume: 0.804
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  soundNames: []
 --- !u!114 &7209914041625815426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 7209914043124951932}
   mouseSensitivity: 250
+  runningname: running
+  grapplename: grapple
   speed: 25
   gravity: -30
   jumpHeight: 2

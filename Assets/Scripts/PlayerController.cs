@@ -1,11 +1,19 @@
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     [Header("Player Settings")]
     [SerializeField] private Transform mainCamera;
     [SerializeField] private float mouseSensitivity = 250.0f;
     MouseLook mouseLook;
+
+    [Header("Audio")]
+    [SerializeField] private string runningname;
+    [SerializeField] private string grapplename;
+    private AudioManager am;
+
 
     [Header("Movement")]
     [SerializeField] private float speed = 12.0f;
@@ -109,6 +117,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        // Audio
+        am = gameObject.GetComponent<AudioManager>();
+
         mouseLook = new MouseLook(mainCamera, mouseSensitivity, maxWallRunAngle, rotateSpeedMultiplier);
         mouseLook.MouseStart();
 
@@ -138,22 +149,12 @@ public class PlayerController : MonoBehaviour
 
             boostPad.HandleBoost(transform, characterController.height, ref velocity.y);
 
-            // Uncomment if you wanna have a go at making the crouch dash work.
-            //if (Input.GetButtonDown("Crouch"))
-            //{
-            //    HandleCrouchDown();
-            //    crouchDash.HandleDash(movementVector, transform, characterController, isGrounded, ref velocity.y);
-            //}
-            //if (Input.GetButtonUp("Crouch"))
-            //{
-            //    HandleCrouchUp();
-            //}
-
             grapple.HandleGrappleStart();
             break;
         }
         case Grapple.grappleState.shoot:
-            HandleMovement();
+                if (!am.isPlaying(grapplename)) am.PlayRandom(grapplename); // TODO: this doesn't account for multiple shots?
+                HandleMovement();
             grapple.HandleGrappleShoot(transform, grappleFOV);
             break;
         case Grapple.grappleState.launch:
@@ -166,10 +167,18 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) || Physics.CheckSphere(groundCheck.position, groundDistance, wallRunable);
 
-        if (isGrounded && velocity.y < 0.0f)
+        // I dunno why the epsilon has to be so high.
+        if ((isGrounded || wallRun.IsWallRunning()) && movementVector.magnitude > 0.1f)
         {
-            velocity.y = 0.0f;
+            float delay = Random.Range(0.0f, 5.0f);
+            if (!am.isPlaying(runningname)) am.PlayRandom(runningname);
         }
+        else
+        {
+            am.Stop(runningname);
+        }
+
+        if (isGrounded && velocity.y < 0.0f) velocity.y = 0.0f;
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
