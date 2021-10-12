@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 918552943405847402}
   - component: {fileID: 918552943405847401}
   m_Layer: 8
-  m_Name: Bounce Plane
+  m_Name: Boost Pad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
