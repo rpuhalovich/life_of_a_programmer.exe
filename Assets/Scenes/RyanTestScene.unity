@@ -900,7 +900,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 931444224979881545, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_Name
-      value: Grapple Sphere (1)
+      value: Grapple Sphere 2
       objectReference: {fileID: 0}
     - target: {fileID: 4981319558441098538, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_RootOrder
@@ -916,7 +916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4981319558441098538, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 97
+      value: 49.9
       objectReference: {fileID: 0}
     - target: {fileID: 4981319558441098538, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2383,11 +2383,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 931444224979881545, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_Name
-      value: Grapple Sphere (2)
+      value: Grapple Sphere 3
       objectReference: {fileID: 0}
     - target: {fileID: 4981319558441098538, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4981319558441098538, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2399,7 +2399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4981319558441098538, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 265.2
+      value: 140.2
       objectReference: {fileID: 0}
     - target: {fileID: 4981319558441098538, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2546,9 +2546,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1849139028}
-  - {fileID: 580768728}
   - {fileID: 1251972958}
+  - {fileID: 580768728}
+  - {fileID: 1849139028}
   m_Father: {fileID: 354057041}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7442,11 +7442,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 931444224979881545, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_Name
-      value: Grapple Sphere
+      value: Grapple Sphere 1
       objectReference: {fileID: 0}
     - target: {fileID: 4981319558441098538, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4981319558441098538, guid: 85fd8f8b2a3b8e1458dc837d7e104c17, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7782,9 +7782,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: dragEffect
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: grappleParent
       value: 
       objectReference: {fileID: 1978778789}
+    - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: maxGrappleDist
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815439, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: m_Name
       value: Player

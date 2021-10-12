@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform grappleLine;
     [SerializeField] private LayerMask grappleable;
     [SerializeField] private Collider grappleParent;
+    [SerializeField] private float dragEffect = 3.0f;
     [SerializeField] [Range(0,360)] private float normalFOV = 60.0f;
     [SerializeField] [Range(0,360)] private float grappleFOV = 100.0f;
     Grapple grapple;
@@ -200,7 +201,6 @@ public class PlayerController : MonoBehaviour
         // slowing down the momentum
         if (velocityMomentum.magnitude >= 0.0f)
         {
-            float dragEffect = 3.0f;
             velocityMomentum -= velocityMomentum * dragEffect * Time.deltaTime;
 
             if (velocityMomentum.magnitude < 0.0f)
