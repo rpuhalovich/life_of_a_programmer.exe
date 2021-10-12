@@ -149,12 +149,11 @@ public class PlayerController : MonoBehaviour
 
             boostPad.HandleBoost(transform, characterController.height, ref velocity.y);
 
-            grapple.HandleGrappleStart();
+            if (grapple.HandleGrappleStart()) am.Play(grapplename); // TODO: this doesn't account for multiple shots?
             break;
         }
         case Grapple.grappleState.shoot:
-                if (!am.isPlaying(grapplename)) am.PlayRandom(grapplename); // TODO: this doesn't account for multiple shots?
-                HandleMovement();
+            HandleMovement();
             grapple.HandleGrappleShoot(transform, grappleFOV);
             break;
         case Grapple.grappleState.launch:

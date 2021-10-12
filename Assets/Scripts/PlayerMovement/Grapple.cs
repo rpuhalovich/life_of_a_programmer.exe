@@ -27,7 +27,10 @@ public class Grapple
         this.state = grappleState.normal;
     }
 
-    public void HandleGrappleStart()
+    /**
+     * Returns true if the grapple was successful.
+     */
+    public bool HandleGrappleStart()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -41,8 +44,10 @@ public class Grapple
                 grappleLine.gameObject.SetActive(true);
                 grappleLine.localScale = Vector3.zero;
                 state = grappleState.shoot;
+                return true;
             }
         }
+        return false;
     }
 
     // has the player shoot out the grappling line
