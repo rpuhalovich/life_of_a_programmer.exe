@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44694585, g: 0.4920355, b: 0.5492332, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028961, g: 0.22089596, b: 0.2790148, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3140,6 +3140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 963194228}
   mouseSensitivity: 250
+  runningname: 
+  grapplename: 
   speed: 25
   gravity: -30
   jumpHeight: 2
@@ -3155,12 +3157,20 @@ MonoBehaviour:
   dashLength: 0.2
   dashResetTime: 2
   maxDashAttempts: 2
+  crouchDashSpeed: 50
+  crouchDashLength: 0.2
+  crouchDashResetTime: 0
+  maxCrouchDashAttempts: 1
+  reducedHeight: 0.7
   maxGrappleDist: 50
   grappleLine: {fileID: 1020391920}
   grappleable:
     serializedVersion: 2
     m_Bits: 64
   grappleParent: {fileID: 1978778789}
+  dragEffect: 3
+  normalFOV: 60
+  grappleFOV: 100
   isGrappleable: {fileID: 1239208728}
   isntGrappleable: {fileID: 978928284}
   minHeight: 4
@@ -3174,6 +3184,11 @@ MonoBehaviour:
   wallRunable:
     serializedVersion: 2
     m_Bits: 128
+  boostPadLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  boostYAmt: 50
+  boostForwardAmt: 10
 --- !u!1 &1633183531
 GameObject:
   m_ObjectHideFlags: 0
