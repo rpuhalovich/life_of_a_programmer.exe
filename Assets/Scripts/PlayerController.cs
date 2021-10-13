@@ -134,6 +134,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame.
     void Update()
     {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
         crosshair.checkGrappleableCrosshair();
         wallRun.CheckWalls(transform, ref numJumped);
         mouseLook.HandleMouse(transform, wallRun.IsWallRunning(), wallRun.IsWallRight(), wallRun.IsWallLeft());
