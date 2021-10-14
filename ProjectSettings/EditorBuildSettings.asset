@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscenes/cs terminal.unity
     guid: 5effea0edefea4341b50124093d21f96
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/cs 0_hello_world.lvl (tutorial).unity
+    guid: 03042f51869d5d545838d18b5df4983c
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/cs 1_memory_leak.lvl.unity
+    guid: 5b16dbe6fc120644ba4270d27e0243d8
   m_configObjects: {}
