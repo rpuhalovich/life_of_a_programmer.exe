@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 11
+  delay: 10.7
   speed: 0.05
   text: 2_null_pointer_exception.lvl
 --- !u!114 &767458226
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 13
+  delay: 11.3
   speed: 0.05
   text: 4_segmentation_fault.lvl
 --- !u!114 &1293178455
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 11
+  delay: 11.2
   speed: 0.05
   text: 1_memory_leak.lvl
 --- !u!114 &1358592075
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 11
+  delay: 10.8
   speed: 0.05
   text: 0_hello_world.lvl
 --- !u!114 &1767614831
