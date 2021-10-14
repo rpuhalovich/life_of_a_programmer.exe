@@ -20669,6 +20669,10 @@ PrefabInstance:
       propertyPath: grappleParent
       value: 
       objectReference: {fileID: 1988465022}
+    - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: mouseSensitivity
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815439, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: m_Name
       value: Player

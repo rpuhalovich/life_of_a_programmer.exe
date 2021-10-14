@@ -259,24 +259,8 @@ public class PlayerController : MonoBehaviour
             }
 
             // let player have numJumps - 1 remaining jumps left and add some forward force
-            numJumped = 1;
+            numJumped = 0;
             movementVector += transform.forward * jumpHeight;
         }
-    }
-
-    void HandleCrouchDown()
-    {
-        Debug.Log("Reducing Height!");
-        var newYpos = this.mainCamera.localPosition;
-        newYpos.y = reducedHeight - 0.2f;
-        this.mainCamera.localPosition = newYpos;
-
-        this.characterController.height = reducedHeight;
-    }
-
-    void HandleCrouchUp()
-    {
-        Debug.Log("Increasing Height!");
-        this.characterController.height = origHeight;
     }
 }

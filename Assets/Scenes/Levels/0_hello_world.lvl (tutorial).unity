@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0063569928, g: 0.0024927254, b: 0.01675142, a: 1}
+  m_IndirectSpecularColor: {r: 0.0063605397, g: 0.0024961676, b: 0.01675649, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19896,6 +19896,10 @@ PrefabInstance:
       propertyPath: grappleParent
       value: 
       objectReference: {fileID: 1988465022}
+    - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: mouseSensitivity
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815439, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: m_Name
       value: Player
