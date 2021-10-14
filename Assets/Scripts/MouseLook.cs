@@ -57,25 +57,11 @@ public class MouseLook
         // reverts the camera angle back to normal
         if ((currWallRunAngle > 0) && !isWallRight && !isWallLeft)
         {
-            if (currWallRunAngle - (maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier) < 0)
-            {
-                currWallRunAngle = 0.0f;
-            }
-            else
-            {
-                currWallRunAngle -= maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
-            }
+            currWallRunAngle -= maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
         }
         if ((currWallRunAngle < 0) && !isWallRight && !isWallLeft)
         {
-            if (currWallRunAngle + (maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier) > 0)
-            {
-                currWallRunAngle = 0.0f;
-            }
-            else
-            {
             currWallRunAngle += maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
-            }
         }
     }
 }
