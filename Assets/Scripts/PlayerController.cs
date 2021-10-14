@@ -137,7 +137,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey("escape")) Application.Quit();
 
-        //if (Input.GetKey("tab")) SceneManager.LoadScene("Level Select");
+        if (Input.GetKey("tab"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Level Select");
+        }
 
         crosshair.checkGrappleableCrosshair();
         wallRun.CheckWalls(transform, ref numJumped);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.048795618, g: 0.047239386, b: 0.057795383, a: 1}
+  m_IndirectSpecularColor: {r: 0.008824069, g: 0.00254186, b: 0.021135217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -213,7 +213,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 991
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -392,6 +392,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2544894295193013265, guid: 9c6ea89d8360339459f97c1d0f6fd2ce, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: fb70ed88c20c0c740a40d759b6812351, type: 2}
     - target: {fileID: 2544894295193013266, guid: 9c6ea89d8360339459f97c1d0f6fd2ce, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -473,8 +477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1411.5046, y: 810}
-  m_SizeDelta: {x: 661.6463, y: 78}
+  m_AnchoredPosition: {x: 1409.1061, y: 810}
+  m_SizeDelta: {x: 666.443, y: 78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946990379
 MonoBehaviour:
@@ -1122,7 +1126,7 @@ Canvas:
   m_GameObject: {fileID: 1949039424}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 26516198}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
