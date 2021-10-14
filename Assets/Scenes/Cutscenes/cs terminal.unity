@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 7
+  delay: 11
   speed: 0.05
   text: 2_null_pointer_exception.lvl
 --- !u!114 &767458226
@@ -473,8 +473,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1353.0612, y: 810}
-  m_SizeDelta: {x: 778.5333, y: 78}
+  m_AnchoredPosition: {x: 1395.4613, y: 810}
+  m_SizeDelta: {x: 693.733, y: 78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946990379
 MonoBehaviour:
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 6
+  delay: 10
   speed: 0.05
   text: dir
 --- !u!114 &946990380
@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 9
+  delay: 13
   speed: 0.05
   text: 4_segmentation_fault.lvl
 --- !u!114 &1293178455
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 7
+  delay: 11
   speed: 0.05
   text: 1_memory_leak.lvl
 --- !u!114 &1358592075
@@ -848,9 +848,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 3
+  delay: 7
   speed: 0.05
-  text: C:\Users\developer\dev_folder\levels >
+  text: C:\Users\developer\dev_folder\buggy_code >
 --- !u!114 &1673239009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 7
+  delay: 11
   speed: 0.05
   text: 0_hello_world.lvl
 --- !u!114 &1767614831
@@ -1253,6 +1253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5d1fa059066c4db19508e5b797520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0
+  delay: 3
   speed: 0.05
   text: cd C:\Users\developer\dev_folder\buggy_code
