@@ -1,11 +1,19 @@
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     [Header("Player Settings")]
     [SerializeField] private Transform mainCamera;
     [SerializeField] private float mouseSensitivity = 250.0f;
     MouseLook mouseLook;
+
+    [Header("Audio")]
+    [SerializeField] private string runningname;
+    [SerializeField] private string grapplename;
+    private AudioManager am;
+
 
     [Header("Movement")]
     [SerializeField] private float speed = 12.0f;
@@ -19,7 +27,7 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    // Double Jump
+    [Header("Double Jump")]
     [SerializeField] private int numJumps = 2;
     private int numJumped;
 
@@ -45,6 +53,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform grappleLine;
     [SerializeField] private LayerMask grappleable;
     [SerializeField] private Collider grappleParent;
+    [SerializeField] private float dragEffect = 3.0f;
     [SerializeField] [Range(0,360)] private float normalFOV = 60.0f;
     [SerializeField] [Range(0,360)] private float grappleFOV = 100.0f;
     Grapple grapple;
@@ -52,7 +61,7 @@ public class PlayerController : MonoBehaviour
     GrappleFOV fov;
     Vector3 velocityMomentum;
 
-    // Grapple Crosshair
+    // Grapple Crosshair.
     [Header("Crosshair Grapple Interaction")]
     [SerializeField] private Transform isGrappleable;
     [SerializeField] private Transform isntGrappleable;
@@ -75,7 +84,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Boost Pad")]
     [SerializeField] private LayerMask boostPadLayer;
-    [SerializeField] private float boostAmt = 50.0f;
+    [SerializeField] private float boostYAmt = 50.0f;
+    [SerializeField] private float boostForwardAmt = 10.0f;
     BoostPad boostPad;
 
     // Called on component startup.
@@ -91,20 +101,26 @@ public class PlayerController : MonoBehaviour
         crouchDash = new Dash(crouchDashSpeed, crouchDashLength, crouchDashResetTime, maxCrouchDashAttempts);
 
         // Get grapple objects and disable their collision with the player.
-        Collider[] grappleChildren = grappleParent.GetComponentsInChildren<Collider>();
-        foreach(Collider obj in grappleChildren)
+        if (grappleParent)
         {
-            Physics.IgnoreCollision(this.GetComponent<Collider>(), obj.GetComponent<Collider>());
+            Collider[] grappleChildren = grappleParent.GetComponentsInChildren<Collider>();
+            foreach(Collider obj in grappleChildren)
+            {
+                Physics.IgnoreCollision(this.GetComponent<Collider>(), obj.GetComponent<Collider>());
+            }
+            Physics.IgnoreCollision(this.GetComponent<Collider>(), grappleParent);
         }
-        Physics.IgnoreCollision(this.GetComponent<Collider>(), grappleParent);
 
         wallRun = new WallRun(mainCamera, minHeight, maxWallDistance, wallRunForce, maxWallRunSpeed, maxWallRunAngle, jumpRefresh, wallRunable);
 
-        boostPad = new BoostPad(boostAmt, boostPadLayer);
+        boostPad = new BoostPad(boostYAmt, boostForwardAmt, boostPadLayer);
     }
 
     private void Awake()
     {
+        // Audio
+        am = gameObject.GetComponent<AudioManager>();
+
         mouseLook = new MouseLook(mainCamera, mouseSensitivity, maxWallRunAngle, rotateSpeedMultiplier);
         mouseLook.MouseStart();
 
@@ -118,6 +134,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame.
     void Update()
     {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
         crosshair.checkGrappleableCrosshair();
         wallRun.CheckWalls(transform, ref numJumped);
         mouseLook.HandleMouse(transform, wallRun.IsWallRunning(), wallRun.IsWallRight(), wallRun.IsWallLeft());
@@ -134,18 +155,7 @@ public class PlayerController : MonoBehaviour
 
             boostPad.HandleBoost(transform, characterController.height, ref velocity.y);
 
-            // Uncomment if you wanna have a go at making the crouch dash work.
-            //if (Input.GetButtonDown("Crouch"))
-            //{
-            //    HandleCrouchDown();
-            //    crouchDash.HandleDash(movementVector, transform, characterController, isGrounded, ref velocity.y);
-            //}
-            //if (Input.GetButtonUp("Crouch"))
-            //{
-            //    HandleCrouchUp();
-            //}
-
-            grapple.HandleGrappleStart();
+            if (grapple.HandleGrappleStart()) am.Play(grapplename); // TODO: this doesn't account for multiple shots?
             break;
         }
         case Grapple.grappleState.shoot:
@@ -162,10 +172,18 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) || Physics.CheckSphere(groundCheck.position, groundDistance, wallRunable);
 
-        if (isGrounded && velocity.y < 0.0f)
+        // I dunno why the epsilon has to be so high.
+        if ((isGrounded || wallRun.IsWallRunning()) && movementVector.magnitude > 0.1f)
         {
-            velocity.y = 0.0f;
+            float delay = Random.Range(0.0f, 5.0f);
+            if (!am.isPlaying(runningname)) am.PlayRandom(runningname);
         }
+        else
+        {
+            am.Stop(runningname);
+        }
+
+        if (isGrounded && velocity.y < 0.0f) velocity.y = 0.0f;
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -188,7 +206,6 @@ public class PlayerController : MonoBehaviour
         // slowing down the momentum
         if (velocityMomentum.magnitude >= 0.0f)
         {
-            float dragEffect = 3.0f;
             velocityMomentum -= velocityMomentum * dragEffect * Time.deltaTime;
 
             if (velocityMomentum.magnitude < 0.0f)

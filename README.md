@@ -111,3 +111,5 @@ Creating A Dash Ability: https://www.youtube.com/watch?v=QyqSoz2ivOk
 Kenney Prototype Textures: https://www.kenney.nl/assets/prototype-textures
 
 Lens Dirt: https://gitlab.labranet.jamk.fi/K8721/unity/-/tree/6dd55de75c1b9f1a7239dab5ec6ffc2badfa09d7/SurvivalShooter/Assets/PostProcessing/Textures/Lens%20Dirt
+
+Footsteps: https://freesound.org/people/Disagree/sounds/433725/
