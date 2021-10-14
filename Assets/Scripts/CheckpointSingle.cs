@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CheckpointSingle : MonoBehaviour
 {
+    private LevelCheckpoints levelCheckpoints;
     private void OnTriggerEnter(Collider other) {
         if (other.TryGetComponent<PlayerController>(out PlayerController player )) {
-            Debug.Log("Checkpoint!");
+            levelCheckpoints.PlayerThroughCheckpoint(this);
         }
+    }
+
+    public void setTrackCheckpoints(LevelCheckpoints levelCheckpoints) {
+        this.levelCheckpoints = levelCheckpoints;
     }
 }
