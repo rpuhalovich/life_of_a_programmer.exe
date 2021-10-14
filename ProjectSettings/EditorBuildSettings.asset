@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscenes/cs 1_memory_leak.lvl.unity
     guid: 5b16dbe6fc120644ba4270d27e0243d8
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/cs 4_segmentation_fault.lvl.unity
+    guid: 12744bf7a06846746bf598ad178976dc
   m_configObjects: {}
