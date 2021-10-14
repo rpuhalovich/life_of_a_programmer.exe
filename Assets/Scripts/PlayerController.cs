@@ -1,5 +1,6 @@
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -134,9 +135,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame.
     void Update()
     {
-        if (Input.GetKey("escape"))
+        if (Input.GetKey("escape")) Application.Quit();
+
+        if (Input.GetKey("tab"))
         {
-            Application.Quit();
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Level Select");
         }
 
         crosshair.checkGrappleableCrosshair();
