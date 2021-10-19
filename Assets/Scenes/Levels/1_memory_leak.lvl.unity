@@ -12741,7 +12741,7 @@ GameObject:
   - component: {fileID: 851417031}
   - component: {fileID: 851417032}
   m_Layer: 0
-  m_Name: Bug Sprite
+  m_Name: Bug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

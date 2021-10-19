@@ -17,28 +17,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/1_memory_leak.lvl.unity
     guid: 991e76a1cceb84e4da732520b176e8f0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/2_null_pointer_exception.lvl.unity
     guid: fe6b452bde366524585670051fc61bae
   - enabled: 1
     path: Assets/Scenes/Levels/4_segmentation_fault.lvl.unity
     guid: 7a01d1f6bb63dd94e916c45f4ce29a64
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Cutscenes/cs when_its_due.unity
     guid: ddeee6a8b4ce19946a5fb98fcac56807
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Cutscenes/cs terminal.unity
     guid: 5effea0edefea4341b50124093d21f96
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Cutscenes/cs 4_segmentation_fault.lvl.unity
     guid: 12744bf7a06846746bf598ad178976dc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Cutscenes/cs 1_memory_leak.lvl.unity
     guid: 5b16dbe6fc120644ba4270d27e0243d8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Cutscenes/cs 0_hello_world.lvl (tutorial).unity
     guid: 03042f51869d5d545838d18b5df4983c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Cutscenes/cs catch_the_bug.unity
     guid: 21b52f20c0927bc499705cfd64d21d67
   m_configObjects: {}

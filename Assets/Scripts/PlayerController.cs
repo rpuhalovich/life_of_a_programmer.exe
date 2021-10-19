@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float crouchDashLength = 0.2f;
     [SerializeField] private float crouchDashResetTime = 0.0f;
     [SerializeField] private int maxCrouchDashAttempts = 1;
-    [SerializeField] private float reducedHeight = 0.7f;
+    //[SerializeField] private float reducedHeight = 0.7f;
     private float origHeight;
     Dash crouchDash;
 
