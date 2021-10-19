@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7209914041625815425}
   - component: {fileID: 7209914041625815424}
-  - component: {fileID: 7209914041625815426}
   - component: {fileID: 2499598313794296837}
+  - component: {fileID: 7209914041625815426}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -55,69 +55,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7209914041625815426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7209914041625815439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61cd5d4ccc5c2b946b4af7762c255397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 7209914043124951932}
-  mouseSensitivity: 250
-  runningname: running
-  grapplename: grapple
-  speed: 23
-  gravity: -30
-  jumpHeight: 2
-  groundDistance: 0.4
-  groundCheck: {fileID: 7209914042322615629}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
-  controller: {fileID: 7209914041625815424}
-  movementVector: {x: 0, y: 0, z: 0}
-  numJumps: 2
-  dashSpeed: 30
-  dashLength: 0.2
-  dashResetTime: 2
-  maxDashAttempts: 2
-  crouchDashSpeed: 50
-  crouchDashLength: 0.2
-  crouchDashResetTime: 0
-  maxCrouchDashAttempts: 1
-  reducedHeight: 1.7
-  maxGrappleDist: 35
-  grappleLine: {fileID: 7209914043168520184}
-  grappleable:
-    serializedVersion: 2
-    m_Bits: 64
-  grappleParent: {fileID: 0}
-  dragEffect: 3
-  normalFOV: 90
-  grappleFOV: 110
-  isGrappleable: {fileID: 7209914042312676624}
-  isntGrappleable: {fileID: 7209914043142784148}
-  minHeight: 4
-  maxWallDistance: 1.4
-  wallRunForce: 7.5
-  maxWallRunSpeed: 30
-  maxWallRunAngle: 20
-  sideWallJumpMultiplier: 5
-  rotateSpeedMultiplier: 5
-  jumpRefresh: 0
-  wallRunable:
-    serializedVersion: 2
-    m_Bits: 128
-  boostPadLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  boostYAmt: 50
-  boostForwardAmt: 10
 --- !u!114 &2499598313794296837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +81,69 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   soundNames: []
+--- !u!114 &7209914041625815426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209914041625815439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cd5d4ccc5c2b946b4af7762c255397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 7209914042322615629}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  controller: {fileID: 7209914041625815424}
+  grappleLine: {fileID: 7209914043168520184}
+  grappleable:
+    serializedVersion: 2
+    m_Bits: 64
+  grappleParent: {fileID: 0}
+  ls: {fileID: 0}
+  runningname: running
+  grapplename: grapple
+  mainCamera: {fileID: 7209914043124951932}
+  mouseSensitivity: 250
+  speed: 23
+  gravity: -30
+  jumpHeight: 2
+  groundDistance: 0.4
+  movementVector: {x: 0, y: 0, z: 0}
+  numJumps: 2
+  dashSpeed: 30
+  dashLength: 0.2
+  dashResetTime: 2
+  maxDashAttempts: 2
+  crouchDashSpeed: 50
+  crouchDashLength: 0.2
+  crouchDashResetTime: 0
+  maxCrouchDashAttempts: 1
+  maxGrappleDist: 35
+  dragEffect: 3
+  normalFOV: 90
+  grappleFOV: 110
+  isGrappleable: {fileID: 7209914042312676624}
+  isntGrappleable: {fileID: 7209914043142784148}
+  minHeight: 4
+  maxWallDistance: 1.4
+  wallRunForce: 7.5
+  maxWallRunSpeed: 30
+  maxWallRunAngle: 20
+  sideWallJumpMultiplier: 5
+  rotateSpeedMultiplier: 5
+  jumpRefresh: 0
+  wallRunable:
+    serializedVersion: 2
+    m_Bits: 128
+  boostPadLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  boostYAmt: 50
+  boostForwardAmt: 10
 --- !u!1 &7209914041715510570
 GameObject:
   m_ObjectHideFlags: 0

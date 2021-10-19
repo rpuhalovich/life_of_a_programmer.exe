@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/2_null_pointer_exception.lvl.unity
     guid: fe6b452bde366524585670051fc61bae
   - enabled: 1
+    path: Assets/Scenes/Levels/3_illegal_use_of_pointer.lvl.unity
+    guid: 142903449e264a2428d7b9adcf2e3e3c
+  - enabled: 1
     path: Assets/Scenes/Levels/4_segmentation_fault.lvl.unity
     guid: 7a01d1f6bb63dd94e916c45f4ce29a64
   - enabled: 0

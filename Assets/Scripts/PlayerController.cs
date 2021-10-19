@@ -4,26 +4,30 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-
-    [Header("Player Settings")]
-    [SerializeField] private Transform mainCamera;
-    [SerializeField] private float mouseSensitivity = 250.0f;
-    MouseLook mouseLook;
+    [Header("Required Objects")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private CharacterController controller;
+    [SerializeField] private Transform grappleLine;
+    [SerializeField] private LayerMask grappleable;
+    [SerializeField] private Collider grappleParent;
+    [SerializeField] private LevelSelector ls; // TODO: This probably shouldn't be here. Put into a menu class or something.
 
     [Header("Audio")]
     [SerializeField] private string runningname;
     [SerializeField] private string grapplename;
     private AudioManager am;
 
+    [Header("Player Settings")]
+    [SerializeField] private Transform mainCamera;
+    [SerializeField] private float mouseSensitivity = 250.0f;
+    MouseLook mouseLook;
 
     [Header("Movement")]
     [SerializeField] private float speed = 12.0f;
     [SerializeField] private float gravity = -19.62f;
     [SerializeField] private float jumpHeight = 2.0f;
     [SerializeField] private float groundDistance = 0.4f;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundMask;
-    [SerializeField] private CharacterController controller;
     [SerializeField] private Vector3 movementVector = Vector3.zero;
     Vector3 velocity;
     bool isGrounded;
@@ -51,9 +55,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Grappling Gun")]
     [SerializeField] private float maxGrappleDist = 50.0f;
-    [SerializeField] private Transform grappleLine;
-    [SerializeField] private LayerMask grappleable;
-    [SerializeField] private Collider grappleParent;
     [SerializeField] private float dragEffect = 3.0f;
     [SerializeField] [Range(0,360)] private float normalFOV = 60.0f;
     [SerializeField] [Range(0,360)] private float grappleFOV = 100.0f;
@@ -140,7 +141,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("tab"))
         {
             Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("Level Select");
+            ls.Select("Level Select");
         }
 
         crosshair.checkGrappleableCrosshair();
