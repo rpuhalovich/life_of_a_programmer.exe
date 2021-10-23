@@ -8,7 +8,9 @@ public class CheckpointSingle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.TryGetComponent<PlayerController>(out PlayerController player)) {
-            Debug.Log("Checkpoint!");
+            foreach (Transform child in transform) {
+                child.GetComponent<MeshRenderer>().material = triggered;
+            }
         }
     }
 }
