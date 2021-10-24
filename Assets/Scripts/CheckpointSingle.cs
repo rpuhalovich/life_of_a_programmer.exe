@@ -7,29 +7,36 @@ public class CheckpointSingle : MonoBehaviour
     private LevelCheckpoints levelCheckpoints;
     private MeshRenderer meshRenderer;
 
-    private void Awake() {
+    private void Awake()
+    {
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         Show();
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.TryGetComponent<PlayerController>(out PlayerController player )) {
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<PlayerController>(out PlayerController player ))
+        {
             levelCheckpoints.PlayerThroughCheckpoint(this);
         }
     }
 
-    public void setTrackCheckpoints(LevelCheckpoints levelCheckpoints) {
+    public void setTrackCheckpoints(LevelCheckpoints levelCheckpoints)
+    {
         this.levelCheckpoints = levelCheckpoints;
     }
 
-    public void Show() {
+    public void Show()
+    {
         meshRenderer.enabled = true;
     }
 
-    public void Hide() {
+    public void Hide()
+    {
         meshRenderer.enabled = false;
     }
 }

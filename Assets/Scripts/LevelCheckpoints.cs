@@ -10,11 +10,13 @@ public class LevelCheckpoints : MonoBehaviour
 
     private List<CheckpointSingle> checkpointSingleList;
     private int nextCheckpointSingleIndex;
-    private void Awake() {
+    private void Awake()
+    {
         Transform checkpointsTransform = transform.Find("Checkpoints");
 
         checkpointSingleList = new List<CheckpointSingle>();
-        foreach (Transform checkpointSingleTransform in checkpointsTransform) {
+        foreach (Transform checkpointSingleTransform in checkpointsTransform)
+        {
             CheckpointSingle checkpointSingle = checkpointSingleTransform.GetComponent<CheckpointSingle>();
             checkpointSingle.setTrackCheckpoints(this);
             checkpointSingleList.Add(checkpointSingle);
@@ -23,8 +25,10 @@ public class LevelCheckpoints : MonoBehaviour
         nextCheckpointSingleIndex = 0;
     }
 
-    public void PlayerThroughCheckpoint(CheckpointSingle checkpointSingle) {
-        if (checkpointSingleList.IndexOf(checkpointSingle) == nextCheckpointSingleIndex) {
+    public void PlayerThroughCheckpoint(CheckpointSingle checkpointSingle)
+    {
+        if (checkpointSingleList.IndexOf(checkpointSingle) == nextCheckpointSingleIndex)
+        {
             // Correct checkpoint.
             Debug.Log("Correct: " + checkpointSingleList.IndexOf(checkpointSingle) + " == " + nextCheckpointSingleIndex);
             CheckpointSingle correctCheckpointSingle = checkpointSingleList[nextCheckpointSingleIndex];
@@ -32,7 +36,9 @@ public class LevelCheckpoints : MonoBehaviour
 
             nextCheckpointSingleIndex = (nextCheckpointSingleIndex + 1) % checkpointSingleList.Count;
             OnPlayerCorrectCheckpoint?.Invoke(this, EventArgs.Empty);
-        } else {
+        }
+        else
+        {
             // Wrong checkpoint.
             Debug.Log("Wrong: " + checkpointSingleList.IndexOf(checkpointSingle) + " != " + nextCheckpointSingleIndex);
             OnPlayerWrongCheckpoint?.Invoke(this, EventArgs.Empty);
