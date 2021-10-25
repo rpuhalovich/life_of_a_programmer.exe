@@ -1869,6 +1869,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2642216743598269878, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1703097300}
     - target: {fileID: 8061898065286194494, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
       propertyPath: m_Name
       value: Finish
@@ -7089,6 +7093,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2642216743598269878, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1703097300}
     - target: {fileID: 8061898065286194494, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
       propertyPath: m_Name
       value: Checkpoint (1)
@@ -15874,6 +15882,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2642216743598269878, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1703097300}
     - target: {fileID: 8061898065286194494, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
       propertyPath: m_Name
       value: Checkpoint (2)
@@ -26644,6 +26656,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2642216743598269878, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1703097300}
     - target: {fileID: 8061898065286194494, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
       propertyPath: m_Name
       value: Start
@@ -27998,6 +28014,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2642216743598269878, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1703097300}
     - target: {fileID: 8061898065286194494, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
       propertyPath: m_Name
       value: Checkpoint (3)
