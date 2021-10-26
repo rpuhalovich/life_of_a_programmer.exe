@@ -46,18 +46,18 @@ public class MouseLook
         // rotate the camera anti-clockwise if player is wall running on a wall to their right, capping at the maxWallRunAngle
         if ((Math.Abs(currWallRunAngle) < maxWallRunAngle) && isWallRight && isWallRunning)
         {
-            currWallRunAngle += maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
+            currWallRunAngle += maxWallRunAngle * Time.deltaTime/2 * rotateSpeedMultiplier;
         }
         // rotate the camera clockwise if a player is wall running on a wall to their left, capping at the maxWallRunAngle
         if ((Math.Abs(currWallRunAngle) < maxWallRunAngle) && isWallLeft && isWallRunning)
         {
-            currWallRunAngle -= maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
+            currWallRunAngle -= maxWallRunAngle * Time.deltaTime/2 * rotateSpeedMultiplier;
         }
 
         // reverts the camera angle back to normal
         if ((currWallRunAngle > 0) && !isWallRight && !isWallLeft)
         {
-            currWallRunAngle -= maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
+            currWallRunAngle -= maxWallRunAngle * Time.deltaTime/2 * rotateSpeedMultiplier;
 
             if (currWallRunAngle < 0) {
                 currWallRunAngle = 0;
@@ -65,7 +65,7 @@ public class MouseLook
         }
         if ((currWallRunAngle < 0) && !isWallRight && !isWallLeft)
         {
-            currWallRunAngle += maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
+            currWallRunAngle += maxWallRunAngle * Time.deltaTime/2 * rotateSpeedMultiplier;
 
             if (currWallRunAngle > 0) {
                 currWallRunAngle = 0;
