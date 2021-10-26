@@ -4,32 +4,20 @@ using UnityEngine;
 
 public class CheckpointSingle : MonoBehaviour
 {
+    [SerializeField] private Material triggered;
+
     private LevelCheckpoints levelCheckpoints;
-    private MeshRenderer meshRenderer;
-
-    private void Awake() {
-        meshRenderer = GetComponent<MeshRenderer>();
-    }
-
-    private void Start() {
-        Show();
-    }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.TryGetComponent<PlayerController>(out PlayerController player )) {
-            levelCheckpoints.PlayerThroughCheckpoint(this);
+        if (other.TryGetComponent<PlayerController>(out PlayerController player)) {
+            foreach (Transform child in transform) {
+                child.GetComponent<MeshRenderer>().material = triggered;
+                levelCheckpoints.PlayerThroughCheckpoint(this);
+            }
         }
     }
 
-    public void setTrackCheckpoints(LevelCheckpoints levelCheckpoints) {
+    public void SetLevelCheckpoints(LevelCheckpoints levelCheckpoints) {
         this.levelCheckpoints = levelCheckpoints;
-    }
-
-    public void Show() {
-        meshRenderer.enabled = true;
-    }
-
-    public void Hide() {
-        meshRenderer.enabled = false;
     }
 }
