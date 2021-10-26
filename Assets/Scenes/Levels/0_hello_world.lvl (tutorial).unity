@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0066393223, g: 0.0026818975, b: 0.016906915, a: 1}
+  m_IndirectSpecularColor: {r: 0.0066186925, g: 0.00266167, b: 0.016876573, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6395,12 +6395,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: 23.30365, w: 8.092873}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 416127100}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 416127100}
+  m_maskType: 0
 --- !u!23 &416127100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28767,12 +28767,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: -13.442771, w: -8.5237055}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 1789471117}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1789471117}
+  m_maskType: 0
 --- !u!23 &1789471117
 MeshRenderer:
   m_ObjectHideFlags: 0

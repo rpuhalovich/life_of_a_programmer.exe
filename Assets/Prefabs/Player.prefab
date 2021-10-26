@@ -74,7 +74,7 @@ MonoBehaviour:
     pitch: 0
     loop: 1
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 632c310fbd246b94396229fe8f5503b9, type: 3}
+  - clip: {fileID: 8300000, guid: c5e920387aea69c42abf23510463b318, type: 3}
     name: grapple
     volume: 0.804
     pitch: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   runningname: running
   grapplename: grapple
   mainCamera: {fileID: 7209914043124951932}
-  mouseSensitivity: 250
+  mouseSensitivity: 150
   speed: 23
   gravity: -30
   jumpHeight: 2
