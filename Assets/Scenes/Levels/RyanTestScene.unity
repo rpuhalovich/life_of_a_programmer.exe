@@ -7759,6 +7759,10 @@ PrefabInstance:
       value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: jumpRefresh
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: grappleParent
       value: 
       objectReference: {fileID: 1978778789}
@@ -7772,7 +7776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: sideWallJumpMultiplier
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815439, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: m_Name
