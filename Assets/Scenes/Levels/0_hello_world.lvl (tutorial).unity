@@ -21928,7 +21928,10 @@ MonoBehaviour:
 
 
     Use
-    W A S D To Move'
+    W A S D To Move
+
+
+    Use the mouse to look around'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -27659,7 +27662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020852574708188277, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.91
+      value: -3.38
       objectReference: {fileID: 0}
     - target: {fileID: 1020852574708188277, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -35661,7 +35664,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh85052
+  m_Name: pb_Mesh132876
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
