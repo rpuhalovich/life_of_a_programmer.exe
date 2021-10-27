@@ -76,8 +76,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxWallRunSpeed = 25.0f;
     [SerializeField] private float maxWallRunAngle = 20.0f;
     [SerializeField] private float sideWallJumpMultiplier = 3.0f;
-    [SerializeField] private float rotateSpeedMultiplier = 5.0f;
-    [SerializeField] [Range(-1,1)] private int jumpRefresh = -1;
+    [SerializeField] private float rotateSpeedMultiplier = 4.0f;
+    [SerializeField] [Range(0,1)] private int jumpRefresh = 0;
     [SerializeField] private LayerMask wallRunable;
     KeyCode right = KeyCode.D;
     KeyCode left = KeyCode.A;
@@ -225,14 +225,14 @@ public class PlayerController : MonoBehaviour
         // first grounded jump
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            numJumped = 0;
+            numJumped = 1;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         // double jump
         if (Input.GetButtonDown("Jump") && !isGrounded)
         {
-            if (++numJumped < numJumps) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            if (++numJumped <= numJumps) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         // jump after a wall run
@@ -256,7 +256,7 @@ public class PlayerController : MonoBehaviour
             }
 
             // let player have numJumps - 1 remaining jumps left and add some forward force
-            numJumped = 0;
+            numJumped = 1;
             movementVector += transform.forward * jumpHeight;
         }
     }

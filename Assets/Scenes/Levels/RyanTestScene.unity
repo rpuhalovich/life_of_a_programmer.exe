@@ -7760,7 +7760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: jumpRefresh
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: grappleParent
@@ -7773,6 +7773,10 @@ PrefabInstance:
     - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: mouseSensitivity
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: rotateSpeedMultiplier
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815426, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: sideWallJumpMultiplier
