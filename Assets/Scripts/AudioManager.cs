@@ -71,4 +71,10 @@ public class AudioManager : MonoBehaviour
         }
         return s.source.isPlaying;
     }
+
+    public void SetVolume(string name, float v)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.volume = v;
+    }
 }

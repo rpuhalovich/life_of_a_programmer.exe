@@ -4,6 +4,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
+    public PlayerController player; // Used to mute player sounds when paused.
 
     void Update()
     {
@@ -22,6 +23,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        player.SetPausedStatus(false);
         Cursor.lockState = CursorLockMode.Locked;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
@@ -30,6 +32,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        player.SetPausedStatus(true);
         Cursor.lockState = CursorLockMode.None;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
