@@ -133,7 +133,7 @@ MonoBehaviour:
   wallRunForce: 7.5
   maxWallRunSpeed: 30
   maxWallRunAngle: 20
-  sideWallJumpMultiplier: 5
+  sideWallJumpMultiplier: 4
   rotateSpeedMultiplier: 5
   jumpRefresh: 0
   wallRunable:
