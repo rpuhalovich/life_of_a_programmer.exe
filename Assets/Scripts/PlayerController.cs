@@ -76,8 +76,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxWallRunSpeed = 25.0f;
     [SerializeField] private float maxWallRunAngle = 20.0f;
     [SerializeField] private float sideWallJumpMultiplier = 3.0f;
-    [SerializeField] private float rotateSpeedMultiplier = 5.0f;
-    [SerializeField] [Range(0,2)] private int jumpRefresh = 0;
+    [SerializeField] private float rotateSpeedMultiplier = 4.0f;
+    [SerializeField] [Range(0,1)] private int jumpRefresh = 0;
     [SerializeField] private LayerMask wallRunable;
     KeyCode right = KeyCode.D;
     KeyCode left = KeyCode.A;
@@ -136,6 +136,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame.
     void Update()
     {
+        if (Input.GetKey("escape")) Application.Quit();
+
         if (Input.GetKey("tab"))
         {
             Cursor.lockState = CursorLockMode.None;
@@ -143,7 +145,7 @@ public class PlayerController : MonoBehaviour
         }
 
         crosshair.checkGrappleableCrosshair();
-        wallRun.CheckWalls(transform, ref numJumped);
+        wallRun.CheckWalls(transform, ref numJumped, wallRun.IsWallRunning());
         mouseLook.HandleMouse(transform, wallRun.IsWallRunning(), wallRun.IsWallRight(), wallRun.IsWallLeft());
 
         // checks on the grapple state before determining what the player can handle per frame
@@ -223,24 +225,20 @@ public class PlayerController : MonoBehaviour
         // first grounded jump
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            numJumped = 0;
+            numJumped = 1;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         // double jump
         if (Input.GetButtonDown("Jump") && !isGrounded)
         {
-            if (++numJumped < numJumps) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            if (++numJumped <= numJumps) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         // jump after a wall run
         if (Input.GetButtonDown("Jump") && wallRun.IsWallRunning())
         {
-            // regular jump if player not going to the opposite direction of the wall
-            if ((!Input.GetKey(right) && wallRun.IsWallRight()) || (!Input.GetKey(left) && wallRun.IsWallLeft()))
-            {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            }
+            wallRun.StopWallRun();
 
             // add some downward force regardless of the direction of the wall jump
             if ((Input.GetKey(right) || Input.GetKey(left)) && (wallRun.IsWallRight() || wallRun.IsWallLeft()))
@@ -248,17 +246,17 @@ public class PlayerController : MonoBehaviour
                 velocity += -transform.up * jumpHeight;
             }
             // sideways jump
-            if (Input.GetKey(left) && wallRun.IsWallRight())
+            if (wallRun.IsWallRight())
             {
                 movementVector += -transform.right * jumpHeight * sideWallJumpMultiplier;
             }
-            if (Input.GetKey(right) && wallRun.IsWallLeft())
+            if (wallRun.IsWallLeft())
             {
                 movementVector += transform.right * jumpHeight * sideWallJumpMultiplier;
             }
 
             // let player have numJumps - 1 remaining jumps left and add some forward force
-            numJumped = 0;
+            numJumped = 1;
             movementVector += transform.forward * jumpHeight;
         }
     }

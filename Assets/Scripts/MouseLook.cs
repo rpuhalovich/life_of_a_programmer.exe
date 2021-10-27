@@ -58,10 +58,18 @@ public class MouseLook
         if ((currWallRunAngle > 0) && !isWallRight && !isWallLeft)
         {
             currWallRunAngle -= maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
+
+            if (currWallRunAngle < 0) {
+                currWallRunAngle = 0;
+            }
         }
         if ((currWallRunAngle < 0) && !isWallRight && !isWallLeft)
         {
             currWallRunAngle += maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
+
+            if (currWallRunAngle > 0) {
+                currWallRunAngle = 0;
+            }
         }
     }
 }

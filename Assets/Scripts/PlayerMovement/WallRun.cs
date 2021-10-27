@@ -29,8 +29,8 @@ class WallRun
 
     public void HandleWallRun(Transform transform, ref Vector3 movementVector, Transform groundCheck, float groundDistance, LayerMask groundMask, KeyCode right, KeyCode left, KeyCode straight)
     {
-        // if the player is moving towards a wall and moving forward as well
-        if (((Input.GetKey(right) && isWallRight) || (Input.GetKey(left) && isWallLeft)) && Input.GetKey(straight))
+        // if the player is against a wall and moving forward
+        if ((isWallRight || isWallLeft) && Input.GetKey(straight))
         {
             // check if the player is above the minimum height off the ground before starting the wall run
             if (!Physics.Raycast(groundCheck.position, -Vector3.up, groundDistance + minHeight, groundMask))
@@ -66,12 +66,12 @@ class WallRun
         }
     }
 
-    void StopWallRun()
+    public void StopWallRun()
     {
         isWallRunning = false;
     }
 
-    public void CheckWalls(Transform transform, ref int numJumped)
+    public void CheckWalls(Transform transform, ref int numJumped, bool isWallRunning)
     {
         isWallRight = Physics.Raycast(transform.position, transform.right, maxWallDistance, wallRunable);
         isWallLeft = Physics.Raycast(transform.position, -transform.right, maxWallDistance, wallRunable);
@@ -82,7 +82,7 @@ class WallRun
         }
 
         // reset the number of jumps when wall running
-        if (isWallLeft || isWallRight)
+        if (isWallRunning)
         {
             numJumped = jumpRefresh;
         }

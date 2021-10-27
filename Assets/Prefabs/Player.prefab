@@ -74,7 +74,7 @@ MonoBehaviour:
     pitch: 0
     loop: 1
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 632c310fbd246b94396229fe8f5503b9, type: 3}
+  - clip: {fileID: 8300000, guid: c5e920387aea69c42abf23510463b318, type: 3}
     name: grapple
     volume: 0.804
     pitch: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   runningname: running
   grapplename: grapple
   mainCamera: {fileID: 7209914043124951932}
-  mouseSensitivity: 250
+  mouseSensitivity: 150
   speed: 23
   gravity: -30
   jumpHeight: 2
@@ -133,7 +133,7 @@ MonoBehaviour:
   wallRunForce: 7.5
   maxWallRunSpeed: 30
   maxWallRunAngle: 20
-  sideWallJumpMultiplier: 5
+  sideWallJumpMultiplier: 4
   rotateSpeedMultiplier: 5
   jumpRefresh: 0
   wallRunable:
@@ -155,7 +155,6 @@ GameObject:
   - component: {fileID: 7209914041715510571}
   - component: {fileID: 7209914041715510574}
   - component: {fileID: 7209914041715510573}
-  - component: {fileID: 7209914041715510572}
   m_Layer: 9
   m_Name: Gun Tip
   m_TagString: Untagged
@@ -227,19 +226,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7209914041715510572
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7209914041715510570}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7209914042312676639
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +526,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 0}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
