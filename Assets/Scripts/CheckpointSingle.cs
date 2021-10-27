@@ -9,9 +9,12 @@ public class CheckpointSingle : MonoBehaviour
 
     private LevelCheckpoints levelCheckpoints;
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.TryGetComponent<PlayerController>(out PlayerController player)) {
-            foreach (Transform child in transform) {
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<PlayerController>(out PlayerController player))
+        {
+            foreach (Transform child in transform)
+            {
                 // Set light beams to green.
                 child.GetComponent<MeshRenderer>().material = triggered;
                 // Set respawn point to this checkpoint.
@@ -21,7 +24,8 @@ public class CheckpointSingle : MonoBehaviour
         }
     }
 
-    public void SetLevelCheckpoints(LevelCheckpoints levelCheckpoints) {
+    public void SetLevelCheckpoints(LevelCheckpoints levelCheckpoints)
+    {
         this.levelCheckpoints = levelCheckpoints;
     }
 }
