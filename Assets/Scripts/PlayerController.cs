@@ -20,8 +20,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Settings")]
     [SerializeField] private Transform mainCamera;
-    //[SerializeField] private float mouseSensitivity = 250.0f;
-    private float mouseSensitivity = 250.0f;
+    // Getting the default sensitivity from PlayerPrefs.
+    private float mouseSensitivity = 150.0f;
     MouseLook mouseLook;
 
     [Header("Movement")]
@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviour
     {
         this.characterController = GetComponent<CharacterController>();
 
+
         // Crouch Height
         origHeight = this.characterController.height;
 
@@ -128,6 +129,8 @@ public class PlayerController : MonoBehaviour
         // Audio
         am = gameObject.GetComponent<AudioManager>();
 
+        // Mouse Sensitivity.
+        mouseSensitivity = PlayerPrefs.GetFloat(PlayerPrefsKeys.sensitivitySliderKey, PlayerPrefsKeys.sensitivitySliderKeyDefaultValue);
         mouseLook = new MouseLook(mainCamera, mouseSensitivity, maxWallRunAngle, rotateSpeedMultiplier);
         mouseLook.MouseStart();
 
