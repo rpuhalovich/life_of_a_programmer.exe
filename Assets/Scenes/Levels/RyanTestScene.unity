@@ -7810,6 +7810,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7209914043124951933, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7209914043426513620, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: m_RootOrder
       value: 0
