@@ -8,20 +8,14 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] private PlayerController player; // Used to mute player sounds when paused.
 
-    [SerializeField] private LevelSelector levelSelector;
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
-            {
                 Resume();
-            }
             else
-            {
                 Pause();
-            }
         }
     }
 
@@ -41,22 +35,5 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
         isPaused = true;
-    }
-
-    public void Quit()
-    {
-        levelSelector.Quit();
-        Debug.Log("Quit");
-    }
-
-    public void LevelSelect()
-    {
-        levelSelector.Select("Level Select");
-        Debug.Log("Level Select");
-    }
-
-    public void SetSensitivity(float value)
-    {
-        player.SetSensitivity(value);
     }
 }

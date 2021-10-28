@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LevelCheckpoints : MonoBehaviour
 {
-
     private List<CheckpointSingle> checkpointSingles;
     [SerializeField] private Stopwatch stopwatch;
 
