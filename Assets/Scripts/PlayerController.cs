@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Settings")]
     [SerializeField] private Transform mainCamera;
-    [SerializeField] private float mouseSensitivity = 250.0f;
+    //[SerializeField] private float mouseSensitivity = 250.0f;
+    private float mouseSensitivity = 250.0f;
     MouseLook mouseLook;
 
     [Header("Movement")]
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 2.0f;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private Vector3 movementVector = Vector3.zero;
+
     Vector3 velocity;
     bool isGrounded;
 
@@ -271,5 +273,10 @@ public class PlayerController : MonoBehaviour
     public void SetPausedStatus(bool isPaused)
     {
         this.isPaused = isPaused;
+    }
+
+    public void SetSensitivity(float value)
+    {
+        mouseSensitivity = value;
     }
 }

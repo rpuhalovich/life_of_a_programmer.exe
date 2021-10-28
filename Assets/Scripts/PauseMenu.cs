@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
+
+    public Slider sensitivitySlider;
+    public Slider musicSlider;
     public PlayerController player; // Used to mute player sounds when paused.
 
     void Update()
@@ -48,5 +52,10 @@ public class PauseMenu : MonoBehaviour
     public void LevelSelect()
     {
         Debug.Log("Level select...");
+    }
+
+    public void SetSensitivity(float value)
+    {
+        player.SetSensitivity(value);
     }
 }
