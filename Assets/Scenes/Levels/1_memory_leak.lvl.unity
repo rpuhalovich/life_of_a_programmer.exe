@@ -13407,6 +13407,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background Audio
       objectReference: {fileID: 0}
+    - target: {fileID: 359721013641684498, guid: ce21dbf55743dda439097ef77292d58f, type: 3}
+      propertyPath: soundNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 359721013641684498, guid: ce21dbf55743dda439097ef77292d58f, type: 3}
+      propertyPath: soundNames.Array.data[2]
+      value: infiltrator
+      objectReference: {fileID: 0}
+    - target: {fileID: 359721013641684498, guid: ce21dbf55743dda439097ef77292d58f, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5590c4d08becc784bb63d7a5cb5fd1ba, type: 3}
+    - target: {fileID: 359721013641684498, guid: ce21dbf55743dda439097ef77292d58f, type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: infiltrator
+      objectReference: {fileID: 0}
     - target: {fileID: 359721013641684499, guid: ce21dbf55743dda439097ef77292d58f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -17702,6 +17718,46 @@ PrefabInstance:
     - target: {fileID: 2272705910154195894, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
       propertyPath: m_Name
       value: Level Fade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059443402228761301, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059443402228761301, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059443402228761301, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059443402228761301, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059443402228761301, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
+      propertyPath: checkPaddingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059443402228761301, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
+      propertyPath: m_enableExtraPadding
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059443402228761301, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059443402228761301, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059443402228761301, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
+      propertyPath: m_geometrySortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059443402228761301, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
+      propertyPath: m_IsTextObjectScaleStatic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7059443402624961279, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
       propertyPath: m_RootOrder
