@@ -18,6 +18,7 @@ public class LevelSelector : MonoBehaviour
 
     public void Select(string levelname)
     {
+        Time.timeScale = 1.0f;
         animator.SetTrigger("Fade Out");
         this.levelname = levelname;
     }
@@ -29,6 +30,7 @@ public class LevelSelector : MonoBehaviour
 
     public void Quit()
     {
+        Time.timeScale = 1.0f;
         Application.Quit();
     }
 }

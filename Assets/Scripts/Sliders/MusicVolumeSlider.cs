@@ -21,7 +21,8 @@ public class MusicVolumeSlider : MonoBehaviour
 
     void Start()
     {
-        slider.onValueChanged.AddListener((v) => {
+        slider.onValueChanged.AddListener((v) =>
+        {
             audioSource.volume = v;
             PlayerPrefs.SetFloat(PlayerPrefsKeys.musicVolumeKey, v);
         });

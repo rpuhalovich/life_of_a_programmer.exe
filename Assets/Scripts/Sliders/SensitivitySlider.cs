@@ -13,7 +13,8 @@ public class SensitivitySlider : MonoBehaviour
 
     void Start()
     {
-        slider.onValueChanged.AddListener((v) => {
+        slider.onValueChanged.AddListener((v) =>
+        {
             player.SetSensitivity(v);
             PlayerPrefs.SetFloat(PlayerPrefsKeys.sensitivitySliderKey, v);
         });

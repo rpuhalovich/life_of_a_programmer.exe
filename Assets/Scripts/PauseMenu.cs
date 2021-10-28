@@ -8,15 +8,7 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] private PlayerController player; // Used to mute player sounds when paused.
 
-    private void Start()
-    {
-        //sensitivitySlider.onValueChanged.AddListener(delegate { SensitivitySliderChange(); });
-    }
-
-    void SensitivitySliderChange()
-    {
-        //player.SetSensitivity(sensitivitySlider.value);
-    }
+    [SerializeField] private LevelSelector levelSelector;
 
     void Update()
     {
@@ -53,13 +45,14 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        Debug.Log("Quitting game...");
-        // Application.Quit();
+        levelSelector.Quit();
+        Debug.Log("Quit");
     }
 
     public void LevelSelect()
     {
-        Debug.Log("Level select...");
+        levelSelector.Select("Level Select");
+        Debug.Log("Level Select");
     }
 
     public void SetSensitivity(float value)
