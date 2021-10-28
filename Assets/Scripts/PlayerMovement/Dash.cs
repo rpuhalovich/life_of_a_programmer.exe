@@ -11,6 +11,7 @@ public class Dash
     private int dashAttempts;
     private float dashStartTime;
     private float lastResetTime;
+    private bool cooldownRefreshed = false;
 
     public Dash(float dashSpeed, float dashLength, float dashResetTime, int maxDashAttempts)
     {
@@ -20,7 +21,7 @@ public class Dash
         this.maxDashAttempts = maxDashAttempts;
     }
 
-    public void HandleDash(Vector3 movementVector, Transform transform, CharacterController characterController, bool isGrounded, ref float velocityY)
+    public void HandleDash(Vector3 movementVector, Transform transform, CharacterController characterController, ref float velocityY)
     {
         //bool isTryingToDash = Input.GetButtonDown("Dash") || Input.GetButtonDown("Crouch"); // TODO: Not great putting input code here...
         bool isTryingToDash = Input.GetButtonDown("Dash");
@@ -60,16 +61,16 @@ public class Dash
             }
         }
 
-        ResetDashAttempts(isGrounded); // Dash can only be reset on the ground.
+        ResetDashAttempts();
     }
 
-    void ResetDashAttempts(bool isGrounded)
+    void ResetDashAttempts()
     {
-        if (!isGrounded) return;
         if (Time.time - lastResetTime >= dashResetTime)
         {
+            cooldownRefreshed = true;
             lastResetTime = Time.time;
-            dashAttempts = 0;
+            dashAttempts = Mathf.Max(0, dashAttempts - 1);
         }
     }
 
@@ -84,5 +85,40 @@ public class Dash
     {
         isDashing = false;
         dashStartTime = 0;
+    }
+
+    public float GetCooldown()
+    {
+        return dashResetTime;
+    }
+
+    public int GetDashAttempts()
+    {
+        return dashAttempts;
+    }
+
+    public int GetMaxDashAttempts()
+    {
+        return maxDashAttempts;
+    }
+
+    public bool IsDashing()
+    {
+        return isDashing;
+    }
+
+    public float CurrCooldownTime()
+    {
+        return Time.time - lastResetTime;
+    }
+
+    public bool CooldownRefreshed()
+    {
+        return cooldownRefreshed;
+    }
+    
+    public void ResetCooldown()
+    {
+        cooldownRefreshed = false;
     }
 }

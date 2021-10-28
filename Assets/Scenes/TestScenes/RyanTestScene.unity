@@ -7430,6 +7430,18 @@ PrefabInstance:
       propertyPath: sounds.Array.data[1].volume
       value: 0.294
       objectReference: {fileID: 0}
+    - target: {fileID: 5248340142949286055, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541247448962475854, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838542574317143525, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7209914041625815425, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: m_RootOrder
       value: 2

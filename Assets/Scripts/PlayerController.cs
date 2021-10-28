@@ -1,5 +1,7 @@
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -43,6 +45,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashLength = 0.2f;
     [SerializeField] private float dashResetTime = 2f;
     [SerializeField] private int maxDashAttempts = 1;
+    [SerializeField] private Image arrow1;
+    [SerializeField] private Image arrow2;
+    [SerializeField] private Image arrow3;
+    [SerializeField] private Image dash1;
+    [SerializeField] private Image dash2;
+    DashUI dashUI;
     CharacterController characterController;
     Dash dash;
 
@@ -107,6 +115,7 @@ public class PlayerController : MonoBehaviour
         // Dash
         dash = new Dash(dashSpeed, dashLength, dashResetTime, maxDashAttempts);
         crouchDash = new Dash(crouchDashSpeed, crouchDashLength, crouchDashResetTime, maxCrouchDashAttempts);
+        dashUI = new DashUI(dash, arrow1, arrow2, arrow3, dash1, dash2);
 
         // Get grapple objects and disable their collision with the player.
         if (grappleParent)
@@ -162,7 +171,7 @@ public class PlayerController : MonoBehaviour
         {
             wallRun.HandleWallRun(transform, ref movementVector, groundCheck, groundDistance, groundMask, right, left, straight);
             HandleMovement();
-            dash.HandleDash(movementVector, transform, characterController, isGrounded, ref velocity.y);
+            dash.HandleDash(movementVector, transform, characterController, ref velocity.y);
 
             boostPad.HandleBoost(transform, characterController.height, ref velocity.y);
 
@@ -177,6 +186,8 @@ public class PlayerController : MonoBehaviour
             grapple.HandleGrappleLaunch(controller, transform, ref velocity, ref velocityMomentum, jumpHeight, normalFOV);
             break;
         }
+
+        dashUI.HandleDashUI();
     }
 
     void HandleMovement()
