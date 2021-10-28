@@ -3,12 +3,20 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool isPaused = false;
-    public GameObject pauseMenuUI;
+    [SerializeField] private static bool isPaused = false;
+    [SerializeField] private GameObject pauseMenuUI;
 
-    public Slider sensitivitySlider;
-    public Slider musicSlider;
-    public PlayerController player; // Used to mute player sounds when paused.
+    [SerializeField] private PlayerController player; // Used to mute player sounds when paused.
+
+    private void Start()
+    {
+        //sensitivitySlider.onValueChanged.AddListener(delegate { SensitivitySliderChange(); });
+    }
+
+    void SensitivitySliderChange()
+    {
+        //player.SetSensitivity(sensitivitySlider.value);
+    }
 
     void Update()
     {

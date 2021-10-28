@@ -275,8 +275,8 @@ public class PlayerController : MonoBehaviour
         this.isPaused = isPaused;
     }
 
-    public void SetSensitivity(float value)
+    public void SetSensitivity(float mouseSensitivity)
     {
-        mouseSensitivity = value;
+        mouseLook.SetSensitivity(mouseSensitivity);
     }
 }

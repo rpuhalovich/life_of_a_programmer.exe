@@ -74,4 +74,9 @@ public class MouseLook
             }
         }
     }
+
+    public void SetSensitivity(float mouseSensitivity)
+    {
+        this.mouseSensitivity = mouseSensitivity;
+    }
 }
