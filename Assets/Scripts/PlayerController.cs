@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Settings")]
     [SerializeField] private Transform mainCamera;
-    [SerializeField] private float mouseSensitivity = 250.0f;
+    // Getting the default sensitivity from PlayerPrefs.
+    private float mouseSensitivity = 150.0f;
     MouseLook mouseLook;
 
     [Header("Movement")]
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 2.0f;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private Vector3 movementVector = Vector3.zero;
+
     Vector3 velocity;
     bool isGrounded;
 
@@ -98,10 +100,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float boostForwardAmt = 10.0f;
     BoostPad boostPad;
 
+    // Pause Menu
+    private bool isPaused = false;
+
     // Called on component startup.
     private void Start()
     {
         this.characterController = GetComponent<CharacterController>();
+
 
         // Crouch Height
         origHeight = this.characterController.height;
@@ -132,6 +138,8 @@ public class PlayerController : MonoBehaviour
         // Audio
         am = gameObject.GetComponent<AudioManager>();
 
+        // Mouse Sensitivity.
+        mouseSensitivity = PlayerPrefs.GetFloat(PlayerPrefsKeys.sensitivitySliderKey, PlayerPrefsKeys.sensitivitySliderKeyDefaultValue);
         mouseLook = new MouseLook(mainCamera, mouseSensitivity, maxWallRunAngle, rotateSpeedMultiplier);
         mouseLook.MouseStart();
 
@@ -145,14 +153,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame.
     void Update()
     {
-        if (Input.GetKey("escape")) Application.Quit();
-
-        if (Input.GetKey("tab"))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            ls.Select("Level Select");
-        }
-
         crosshair.checkGrappleableCrosshair();
         wallRun.CheckWalls(transform, ref numJumped, wallRun.IsWallRunning());
         mouseLook.HandleMouse(transform, wallRun.IsWallRunning(), wallRun.IsWallRight(), wallRun.IsWallLeft());
@@ -188,16 +188,7 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) || Physics.CheckSphere(groundCheck.position, groundDistance, wallRunable);
 
-        // I dunno why the epsilon has to be so high.
-        if ((isGrounded || wallRun.IsWallRunning()) && movementVector.magnitude > 0.1f)
-        {
-            float delay = Random.Range(0.0f, 5.0f);
-            if (!am.isPlaying(runningname)) am.PlayRandom(runningname);
-        }
-        else
-        {
-            am.Stop(runningname);
-        }
+        PlayWalkSound(); // Handles the playing and pausing of walking movement.
 
         if (isGrounded && velocity.y < 0.0f) velocity.y = 0.0f;
 
@@ -270,5 +261,30 @@ public class PlayerController : MonoBehaviour
             numJumped = 1;
             movementVector += transform.forward * jumpHeight;
         }
+    }
+
+    public void PlayWalkSound()
+    {
+        // This plays (at a random point) and stops the running audio when moving on a ground.
+        am.SetVolume(runningname, 1.0f);
+        if ((isGrounded || wallRun.IsWallRunning()) && movementVector.magnitude > 0.1f && !isPaused) // I dunno why the epsilon has to be so high.
+        {
+            float delay = Random.Range(0.0f, 5.0f);
+            if (!am.isPlaying(runningname)) am.PlayRandom(runningname);
+        }
+        else
+        {
+            am.Stop(runningname);
+        }
+    }
+
+    public void SetPausedStatus(bool isPaused)
+    {
+        this.isPaused = isPaused;
+    }
+
+    public void SetSensitivity(float mouseSensitivity)
+    {
+        mouseLook.SetSensitivity(mouseSensitivity);
     }
 }

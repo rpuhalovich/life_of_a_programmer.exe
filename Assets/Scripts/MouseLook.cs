@@ -59,7 +59,8 @@ public class MouseLook
         {
             currWallRunAngle -= maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
 
-            if (currWallRunAngle < 0) {
+            if (currWallRunAngle < 0)
+            {
                 currWallRunAngle = 0;
             }
         }
@@ -67,9 +68,15 @@ public class MouseLook
         {
             currWallRunAngle += maxWallRunAngle * Time.deltaTime * rotateSpeedMultiplier;
 
-            if (currWallRunAngle > 0) {
+            if (currWallRunAngle > 0)
+            {
                 currWallRunAngle = 0;
             }
         }
+    }
+
+    public void SetSensitivity(float mouseSensitivity)
+    {
+        this.mouseSensitivity = mouseSensitivity;
     }
 }

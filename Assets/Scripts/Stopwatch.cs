@@ -19,18 +19,21 @@ public class Stopwatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stopwatchActive) {
+        if (stopwatchActive)
+        {
             currentTime += Time.deltaTime;
         }
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         currentTimeText.text = time.ToString(@"mm\:ss\:fff");
     }
 
-    public void StartStopwatch() {
+    public void StartStopwatch()
+    {
         stopwatchActive = true;
     }
 
-    public void StopStopwatch() {
+    public void StopStopwatch()
+    {
         stopwatchActive = false;
     }
 }
