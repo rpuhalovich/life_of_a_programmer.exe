@@ -37,7 +37,7 @@ public class DashUI
     // Update is called once per frame
     public void HandleDashUI()
     {
-        if (Input.GetButtonDown("Dash") && dash.IsDashing())
+        if (Input.GetButtonDown("Dash"))
         {
             isCooldown = true;
             arrow1.fillAmount = 1;
