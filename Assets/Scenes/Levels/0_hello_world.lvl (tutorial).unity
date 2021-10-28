@@ -15607,6 +15607,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background Audio
       objectReference: {fileID: 0}
+    - target: {fileID: 359721013641684498, guid: ce21dbf55743dda439097ef77292d58f, type: 3}
+      propertyPath: soundNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 359721013641684498, guid: ce21dbf55743dda439097ef77292d58f, type: 3}
+      propertyPath: soundNames.Array.data[2]
+      value: internet_crush
+      objectReference: {fileID: 0}
     - target: {fileID: 359721013641684499, guid: ce21dbf55743dda439097ef77292d58f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -36629,7 +36637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7059443402624961279, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -330
+      value: -330.00003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a92c90b8445df3458fe38f695f8edab, type: 3}
