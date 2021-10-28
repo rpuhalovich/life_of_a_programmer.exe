@@ -7,14 +7,23 @@ public class MusicVolumeSlider : MonoBehaviour
 {
     public Slider slider;
 
-    public AudioManager audiomanager;
-    public string songName;
+    public GameObject musicObject;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = musicObject.GetComponent<AudioSource>();
+
+        // Get saved volume, return 0.1 (PlayerPrefsKeys.musicVolumeKeyDefaultValue) if it hasn't been saved yet.
+        audioSource.volume = PlayerPrefs.GetFloat(PlayerPrefsKeys.musicVolumeKey, PlayerPrefsKeys.musicVolumeKeyDefaultValue);
+        slider.value = PlayerPrefs.GetFloat(PlayerPrefsKeys.musicVolumeKey, PlayerPrefsKeys.musicVolumeKeyDefaultValue);
+    }
 
     void Start()
     {
         slider.onValueChanged.AddListener((v) => {
-            //Debug.Log(v.ToString());
-            audiomanager.SetVolume(songName, v);
+            audioSource.volume = v;
+            PlayerPrefs.SetFloat(PlayerPrefsKeys.musicVolumeKey, v);
         });
     }
 }
