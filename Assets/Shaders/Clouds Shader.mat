@@ -33,7 +33,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - CloudScale: 120
+    - CloudAlpha: 1
+    - CloudPower: 1
+    - CloudScale: 120.36
     m_Colors:
+    - CloudColor: {r: 9.5565195, g: 1.190436, b: 19.413256, a: 1}
     - CloudSpeed: {r: 0, g: 0.005, b: 0, a: 0}
   m_BuildTextureStacks: []
