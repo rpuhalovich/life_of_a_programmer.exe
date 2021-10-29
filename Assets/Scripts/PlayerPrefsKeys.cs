@@ -1,5 +1,4 @@
 ﻿// Just a singleton that holds all the keys for the different playerprefs.
-
 class PlayerPrefsKeys
 {
     public const string musicVolumeKey = "musicVolume";

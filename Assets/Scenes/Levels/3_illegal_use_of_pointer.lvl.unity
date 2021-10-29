@@ -14654,6 +14654,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 551027320}
+    - target: {fileID: 9057739685121858523, guid: 766f14aa625b0694fabb2f326020a9a8, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c5d36db5e3c208645a8b73781765ff6f, type: 3}
     - target: {fileID: 9057739685330645166, guid: 766f14aa625b0694fabb2f326020a9a8, type: 3}
       propertyPath: m_Name
       value: Global Components
