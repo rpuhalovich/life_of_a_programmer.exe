@@ -73,30 +73,30 @@ The query technique employed was the Interview technique. What this entailed was
 We had five participants take part in the query evaluation technique. All of which were in the 20 - 23 age range and were all to some degree regular gamers. Only one of which (Cynthia) had not played first person games before.
 
 The questions asked and general feedback were as follows:
-1: Do you think with the current controls, you’re able to further improve your time to be faster?
+**_1: Do you think with the current controls, you’re able to further improve your time to be faster?_**
 As the game is a parkour racing game, we wanted to have the player play each level multiple times to try and improve their time each time. The possibility for optimisation and shortcuts are intentionally left in to be discovered.
 
 The general response from the playetesters was that, given more time, they would be able to reduce their times.
 
-2: How intuitive are the controls?
+**_2: How intuitive are the controls?_**
 
 The game utilises the standard first person shooter control layout, and thus should be very easy to grasp. This is more intended for if the double jump and double dash mechanics feel intuitive.
 
 The response was unanimously in favour of the controls and how intuitive they are.
 
-3: What is the least intuitive mechanic?
+**_3: What is the least intuitive mechanic?_**
 
 This pertains to each of the featured mechanics of the game. These being the wallrunning, grappling, dashing, double jumping and the boostpads.
 
 It was almost unanimously the wallrunning that was the least intuitive mechanic. We noticed that participants would aim in the direction that they wished to jump, however their momentum would carry them in their current direction. Further, it was not obvious to participants that the ‘A’ or ‘D’ keys would need to be held down during a wallrun.
 
-4: What do you think about the difficulty of the game?
+**_4: What do you think about the difficulty of the game?_**
 
 A good game difficulty would have a linear progression of difficulty over the course of many levels.
 
 Given the context of skill levels of each other participants, the game seemed to be challenging, but not to the point of not being fun. More experienced participants would be able to pick up the controls and complete levels easily while less experienced participants would require many more attempts to complete a level. This is not bad however, overall the difficulty was acknowledged to be slightly above average but not to a frustrating degree.
 
-5: What do you think you would add to the game to improve it?
+**_5: What do you think you would add to the game to improve it?_**
 
 This was to be an open hypothetical question for any features or improvements that the participants wanted. Obviously, not all requests were able to be met with how out of scope some of them tended to be.
 
@@ -112,17 +112,17 @@ Romy had requested hidden alternate routes that would act as shortcuts for the m
 
 ## Contributions Made - Ryan
 
-Eight of the ten participants for the evaluation were arranged by me.
-Post processing effects, including the use of bloom on many of the assets.
-Opening screen, and level selection screen.
-Scene fade transitions, as well as scripting the ability to switch levels.
-Pause menu, including the sensitivity and music sliders.
-Double jumping.
-Boost pads.
-Dash ability.
-Coming up with the story, cinematics, and editing the gameplay video.
-All sound design of the various elements. Including the synthesis of some original sounds.
-Music choice and playback during gameplay and the level select screen.
+- Eight of the ten participants for the evaluation were arranged by me.
+- Post processing effects, including the use of bloom on many of the assets.
+- Opening screen, and level selection screen.
+- Scene fade transitions, as well as scripting the ability to switch levels.
+- Pause menu, including the sensitivity and music sliders.
+- Double jumping.
+- Boost pads.
+- Dash ability.
+- Coming up with the story, cinematics, and editing the gameplay video.
+- All sound design of the various elements. Including the synthesis of some original sounds.
+- Music choice and playback during gameplay and the level select screen.
 
 ## Contributions Made - Marvin
 
