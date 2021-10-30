@@ -158,27 +158,30 @@ public class PlayerController : MonoBehaviour
         mouseLook.HandleMouse(transform, wallRun.IsWallRunning(), wallRun.IsWallRight(), wallRun.IsWallLeft());
 
         // checks on the grapple state before determining what the player can handle per frame
-        switch (grapple.State())
+        if (!isPaused)
         {
-        default:
-        case Grapple.grappleState.normal:
-        {
-            wallRun.HandleWallRun(transform, ref movementVector, groundCheck, groundDistance, groundMask, right, left, straight);
-            HandleMovement();
-            dash.HandleDash(movementVector, transform, characterController, ref velocity.y);
+            switch (grapple.State())
+            {
+            default:
+            case Grapple.grappleState.normal:
+            {
+                wallRun.HandleWallRun(transform, ref movementVector, groundCheck, groundDistance, groundMask, right, left, straight);
+                HandleMovement();
+                dash.HandleDash(movementVector, transform, characterController, ref velocity.y);
 
-            boostPad.HandleBoost(transform, characterController.height, ref velocity.y);
+                boostPad.HandleBoost(transform, characterController.height, ref velocity.y);
 
-            if (grapple.HandleGrappleStart()) am.Play(grapplename); // TODO: this doesn't account for multiple shots?
-            break;
-        }
-        case Grapple.grappleState.shoot:
-            HandleMovement();
-            grapple.HandleGrappleShoot(transform, grappleFOV);
-            break;
-        case Grapple.grappleState.launch:
-            grapple.HandleGrappleLaunch(controller, transform, ref velocity, ref velocityMomentum, jumpHeight, normalFOV);
-            break;
+                if (grapple.HandleGrappleStart()) am.Play(grapplename); // TODO: this doesn't account for multiple shots?
+                break;
+            }
+            case Grapple.grappleState.shoot:
+                HandleMovement();
+                grapple.HandleGrappleShoot(transform, grappleFOV);
+                break;
+            case Grapple.grappleState.launch:
+                grapple.HandleGrappleLaunch(controller, transform, ref velocity, ref velocityMomentum, jumpHeight, normalFOV);
+                break;
+            }
         }
 
         dashUI.HandleDashUI();
