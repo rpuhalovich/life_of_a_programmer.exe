@@ -21640,7 +21640,8 @@ MonoBehaviour:
 
 
     move
-    through the first checkpoint gate to start the timer
+    through the first checkpoint gate to start the Stopwatch (need to pass through
+    all the checkpoints in order to stop it)
 
 '
   m_isRightToLeft: 0
@@ -30094,11 +30095,11 @@ MonoBehaviour:
 
 
     catch
-    the bug to stop the timer
+    the bug to stop the stopwatch (if you missed a checkpoint, that''s rough buddy)
 
 
-    press ESC -> Level Selector and proceed to the
-    next level
+    press
+    ESC -> Level Selector to choose another level
 
 '
   m_isRightToLeft: 0
@@ -30802,7 +30803,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh110256
+  m_Name: pb_Mesh186116
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
