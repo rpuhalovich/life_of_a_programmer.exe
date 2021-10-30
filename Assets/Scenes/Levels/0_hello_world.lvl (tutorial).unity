@@ -9748,7 +9748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329533d93ed8e55b89fb37c5e009258c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1250491208}
   respawnPoint: {fileID: 1703097300}
 --- !u!1 &748554145
 GameObject:
@@ -23525,6 +23525,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1250491208 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7209914041625815425, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+  m_PrefabInstance: {fileID: 723537998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1259718535
 GameObject:
   m_ObjectHideFlags: 0
