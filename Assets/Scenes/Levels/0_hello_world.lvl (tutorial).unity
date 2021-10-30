@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0066387104, g: 0.002681269, b: 0.016905973, a: 1}
+  m_IndirectSpecularColor: {r: 0.0066393223, g: 0.0026818975, b: 0.016906915, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -448,12 +448,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: 11.575613, w: -8.5237055}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 63150777}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &63150777
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2032,11 +2032,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020852574708188277, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 88.22
+      value: 88.93
       objectReference: {fileID: 0}
     - target: {fileID: 1020852574708188277, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -363.48
+      value: -362.55
       objectReference: {fileID: 0}
     - target: {fileID: 1020852574708188277, guid: 4ca5255dc0e2b5242865d37cc90237d0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6211,12 +6211,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: -9.9759865, w: -8.5237055}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 255798413}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &255798413
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6795,12 +6795,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: 23.30365, w: 8.092873}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 416127100}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &416127100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9861,12 +9861,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: 1.6609612, w: -8.5237055}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 755204391}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &755204391
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15776,7 +15776,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh122528
+  m_Name: pb_Mesh48974
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15951,7 +15951,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh123436
+  m_Name: pb_Mesh49882
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16289,13 +16289,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopwatch: {fileID: 1070079359}
+  triggered: {fileID: 2100000, guid: 4cda2d8a3a02b2d4bb1090509d22a18a, type: 2}
+  respawnPoint: {fileID: 1774641676839968984, guid: a0237a13b8874f484b7ce5ddb67c4690, type: 3}
 --- !u!43 &1043488140
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh123312
+  m_Name: pb_Mesh49758
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16764,7 +16766,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh122264
+  m_Name: pb_Mesh48710
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22122,12 +22124,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: 7.9958344, w: -8.5237055}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1202158579}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1202158579
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22400,12 +22402,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: 6.7048454, w: -8.5237055}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1217282889}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1217282889
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22926,7 +22928,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh122972
+  m_Name: pb_Mesh49418
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23090,7 +23092,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh74582
+  m_Name: pb_Mesh49362
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23468,7 +23470,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh123422
+  m_Name: pb_Mesh49868
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -24989,7 +24991,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh122246
+  m_Name: pb_Mesh48692
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25963,7 +25965,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh123066
+  m_Name: pb_Mesh49512
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26446,12 +26448,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: 0.38010976, w: -8.5237055}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1536996698}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1536996698
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26679,7 +26681,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh122862
+  m_Name: pb_Mesh49308
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -27351,7 +27353,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh123166
+  m_Name: pb_Mesh49612
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -28168,6 +28170,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.76
       objectReference: {fileID: 0}
+    - target: {fileID: 7209914043426513619, guid: 0047652238c9715419dc46ef763c101f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7209914043426513620, guid: 0047652238c9715419dc46ef763c101f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -28352,12 +28358,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: 9.154657, w: -8.5237055}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1668920547}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1668920547
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28662,7 +28668,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh122368
+  m_Name: pb_Mesh48814
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -35126,12 +35132,12 @@ MonoBehaviour:
   m_margin: {x: -12.815649, y: -5.1009827, z: -8.592121, w: -8.5237055}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1983134457}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1983134457
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35323,7 +35329,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh75050
+  m_Name: pb_Mesh49830
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -35762,7 +35768,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh122756
+  m_Name: pb_Mesh49202
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36375,7 +36381,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh123084
+  m_Name: pb_Mesh49530
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
