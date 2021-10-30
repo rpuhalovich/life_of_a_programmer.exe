@@ -193,7 +193,14 @@ public class PlayerController : MonoBehaviour
 
         PlayWalkSound(); // Handles the playing and pausing of walking movement.
 
-        if (isGrounded && velocity.y < 0.0f) velocity.y = 0.0f;
+        if (isGrounded)
+        {
+            numJumped = 0;
+            if (velocity.y < 0.0f)
+            {
+                velocity.y = 0.0f;
+            }
+        }
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
