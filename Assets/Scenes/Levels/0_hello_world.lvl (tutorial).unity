@@ -30199,7 +30199,7 @@ MonoBehaviour:
 
 
     press
-    ESC -> Level Selector to choose another level
+    ESC -> LEVELSELECT() to choose another level
 
 '
   m_isRightToLeft: 0
