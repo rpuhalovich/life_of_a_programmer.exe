@@ -53,14 +53,11 @@ public class LevelCheckpoints : MonoBehaviour
         if (nextCheckpointSingleIndex == checkpointSingles.Count)
         {
             stopwatch.StopStopwatch();
-            finalGlitch.Play();
-
-            //Debug.Log("stopwatchStopCount: " + stopwatchStopCount);
-
-            //// Very bad botch to make final sound play when reached final checkpoint, just cus close to ship.
-            //if (stopwatchStopCount == 1)
-            //else
-            //    stopwatchStopCount++;
+            if (stopwatchStopCount == 0)
+            {
+                finalGlitch.Play();
+                stopwatchStopCount++;
+            }
         }
     }
 }
