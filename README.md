@@ -69,6 +69,7 @@ The query technique employed was the Interview technique. What this entailed was
 We had five participants take part in the query evaluation technique. All of which were in the 20 - 23 age range and were all to some degree regular gamers. Only one of which (Cynthia) had not played first person games before.
 
 The questions asked and general feedback were as follows:
+
 **_1: Do you think with the current controls, you’re able to further improve your time to be faster?_**
 As the game is a parkour racing game, we wanted to have the player play each level multiple times to try and improve their time each time. The possibility for optimisation and shortcuts are intentionally left in to be discovered.
 
