@@ -6542,7 +6542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537016854}
   m_LocalRotation: {x: 1.110223e-17, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -399.1, y: -73.6, z: -38.2}
+  m_LocalPosition: {x: -401.06, y: -73.6, z: -39.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2013566299}
@@ -10791,6 +10791,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 20.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8741049390851980733, guid: 766f14aa625b0694fabb2f326020a9a8, type: 3}
+      propertyPath: soundNames.Array.data[0]
+      value: rebirth
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741049390851980733, guid: 766f14aa625b0694fabb2f326020a9a8, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 53837df717f64a44c8fa797c0bd5e4ee, type: 3}
+    - target: {fileID: 8741049390851980733, guid: 766f14aa625b0694fabb2f326020a9a8, type: 3}
+      propertyPath: sounds.Array.data[0].name
+      value: rebirth
+      objectReference: {fileID: 0}
     - target: {fileID: 9057739683844588342, guid: 766f14aa625b0694fabb2f326020a9a8, type: 3}
       propertyPath: player
       value: 
@@ -10802,7 +10814,7 @@ PrefabInstance:
     - target: {fileID: 9057739685121858523, guid: 766f14aa625b0694fabb2f326020a9a8, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: c5d36db5e3c208645a8b73781765ff6f, type: 3}
+      objectReference: {fileID: 8300000, guid: 53837df717f64a44c8fa797c0bd5e4ee, type: 3}
     - target: {fileID: 9057739685330645166, guid: 766f14aa625b0694fabb2f326020a9a8, type: 3}
       propertyPath: m_Name
       value: Global Components
@@ -24269,7 +24281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028399972}
   m_LocalRotation: {x: 1.110223e-17, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -384.35, y: -72.35, z: -55.449997}
+  m_LocalPosition: {x: -384.35, y: -71.62, z: -62.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1017216326}
