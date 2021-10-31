@@ -16,7 +16,7 @@ The first level is 0_hello_world.lvl and introduces each of the mechanics gradua
 
 On the bottom left of the Heads Up Display (HUD) you will see a dash meter where the two circles with triangles inside represent dashes currently able to be used (greyed out when unable) and the three arrows will fill up to recharge a used dash every one second. Also seen is a timer for the stopwatch that will begin counting up after passing through the first checkpoint and finish after reaching the final checkpoint (the bug).
 
-## Aesthetics of Objects and Entities (how it was designed)
+## Aesthetics of Objects and Entities
 
 ![](Docs/Images/entities.png)
 
