@@ -16,7 +16,7 @@ The first level is 0_hello_world.lvl and introduces each of the mechanics gradua
 
 On the bottom left of the Heads Up Display (HUD) you will see a dash meter where the two circles with triangles inside represent dashes currently able to be used (greyed out when unable) and the three arrows will fill up to recharge a used dash every one second. Also seen is a timer for the stopwatch that will begin counting up after passing through the first checkpoint and finish after reaching the final checkpoint (the bug).
 
-## Aesthetics of Objects and Entities
+## Aesthetics of Objects and Entities (how it was designed)
 
 ![](Docs/Images/entities.png)
 
@@ -118,35 +118,41 @@ Finally, it was found that almost every single participant found the same shortc
 
 ## Changes Made
 
-With the majority of playtesters struggling with the wallrunning, the implementation was then changed. We had changed it to no longer require the ‘a’ or ‘d’ keys being held down when wallrunning. Having some participants try the game again after the wallrun fix, it was clear that this had greatly improved the playability of wallrunning.
+With the majority of playtesters struggling with the wallrunning, the implementation was then changed. We had changed it to no longer require the ‘A’ or ‘D’ keys being held down when wallrunning. Having some participants try the game again after the wallrun fix, it was clear that this had greatly improved the playability of wallrunning.
 
 A glitch and beeping sound was added to the final checkpoint (the bug), to indicate that the timer has stopped and the level has been completed.
 
 Finally, the tutorial now mentions the colour change when you are able to grapple a grapple point.
 
-## Contributions Made - Ryan
+## Contributions - Ryan
 
 - Eight of the ten participants for the evaluation were arranged by me.
-- Post processing effects, including the use of bloom on many of the assets.
-- Opening screen, and level selection screen.
+- Post processing effects (chromatic aberration, colour correction etc.), including the use of bloom on most of the assets. This involved converting the current default project to one that uses the Universal Render Pipeline.
+- Procedurally generated clouds.
+- The particle effects on the bugs and boost pads.
+- Open screen, and level selection screen.
 - Scene fade transitions, as well as scripting the ability to switch scenes.
 - Pause menu, including the sensitivity and music sliders.
 - Double jumping.
 - Boost pads.
 - Dash ability.
-- Coming up with the story, cinematics, and editing the gameplay video.
-- All sound design of the various elements in Reaper. Including the synthesis of some sounds.
-- Music choice and playback during gameplay and the level select screen.
+- Coming up with the story, cinematics (using the Unity timeline), and editing the gameplay video.
+- All sound design of the various game elements using Reaper. Including the synthesis of some sounds with Serum.
+- The choice of music and programming the playback during gameplay and the level select screen, as well as the Open Screen sound.
+- Levels 0_hello_world.lvl and 1_memory_leak.lvl were made by me. Seth however was the one to place all tutorial control signs in 1_memory_leak.lvl.
 
-## Contributions Made - Marvin
+## Contributions - Marvin
 
-## Contributions Made - Seth
+## Contributions - Seth
 
 ## References
 
 Prevention of weapon clipping: https://www.linkedin.com/pulse/how-prevent-weapon-clipping-unity-urp-without-/
+
 Clouds Shader: https://www.youtube.com/watch?v=xxhvUyvIH6s
+
 Creating A Dash Ability: https://www.youtube.com/watch?v=QyqSoz2ivOk
-Kenney Prototype Textures: https://www.kenney.nl/assets/prototype-textures
+
 Lens Dirt: https://gitlab.labranet.jamk.fi/K8721/unity/-/tree/6dd55de75c1b9f1a7239dab5ec6ffc2badfa09d7/SurvivalShooter/Assets/PostProcessing/Textures/Lens%20Dirt
+
 Footsteps: https://freesound.org/people/Disagree/sounds/433725/
