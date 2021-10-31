@@ -27,15 +27,12 @@ public class Grapple
         this.state = grappleState.normal;
     }
 
-    /**
-     * Returns true if the grapple was successful.
-     */
     public bool HandleGrappleStart()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            // if there is a 'grappleable' object within the max grapple distance, then proceed
-            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit, maxGrappleDist, grappleable))
+            // if there is a 'grappleable' object within the max grapple distance and the first object hit from the raycast is in the grapple layer, then proceed
+            if ((Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit, maxGrappleDist)) && ((rayHit.transform.gameObject.layer == LayerMask.NameToLayer("Grapple"))))
             {
                 // sets grapple position, allows the grapple line to be seen, and initiates the grapple launch state
                 //grapplePos = rayHit.point;
