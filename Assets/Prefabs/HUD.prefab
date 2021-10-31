@@ -174,11 +174,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1115399597030683608, guid: c1bbea8a8ac8d8946a73077213fba05d, type: 3}
       propertyPath: m_fontSize
-      value: 31
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 1115399597030683608, guid: c1bbea8a8ac8d8946a73077213fba05d, type: 3}
       propertyPath: m_margin.y
-      value: -12.936127
+      value: -0.037734985
       objectReference: {fileID: 0}
     - target: {fileID: 1115399597030683608, guid: c1bbea8a8ac8d8946a73077213fba05d, type: 3}
       propertyPath: m_fontAsset
@@ -186,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
     - target: {fileID: 1115399597030683608, guid: c1bbea8a8ac8d8946a73077213fba05d, type: 3}
       propertyPath: m_fontSizeBase
-      value: 31
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 1115399597030683608, guid: c1bbea8a8ac8d8946a73077213fba05d, type: 3}
       propertyPath: m_sharedMaterial
@@ -198,19 +198,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1115399597030683610, guid: c1bbea8a8ac8d8946a73077213fba05d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1124
+      value: 257.98
       objectReference: {fileID: 0}
     - target: {fileID: 1115399597030683610, guid: c1bbea8a8ac8d8946a73077213fba05d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 37.13
+      value: 49.996
       objectReference: {fileID: 0}
     - target: {fileID: 1115399597030683610, guid: c1bbea8a8ac8d8946a73077213fba05d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000061035
+      value: 275.9
       objectReference: {fileID: 0}
     - target: {fileID: 1115399597030683610, guid: c1bbea8a8ac8d8946a73077213fba05d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -610.93
+      value: -535.4
       objectReference: {fileID: 0}
     - target: {fileID: 1115399598498461709, guid: c1bbea8a8ac8d8946a73077213fba05d, type: 3}
       propertyPath: m_Name

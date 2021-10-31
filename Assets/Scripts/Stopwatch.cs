@@ -1,8 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Stopwatch : MonoBehaviour
 {
@@ -10,13 +9,21 @@ public class Stopwatch : MonoBehaviour
     bool stopwatchActive = false;
     [SerializeField] private TMP_Text currentTimeText;
 
-    // Start is called before the first frame update
+    [SerializeField] private TMP_Text bestTimeText;
+    private float bestTimeValue;
+    private Scene scene;
+
     void Start()
     {
         currentTime = 0;
+
+        // Get best time from playerprefs for the current scene and apply it to the best time text.
+        scene = SceneManager.GetActiveScene();
+        bestTimeValue = PlayerPrefs.GetFloat(scene.name, 6039000.0f); // If no best time set to 30 minutes.
+        TimeSpan time = TimeSpan.FromSeconds(bestTimeValue);
+        bestTimeText.text = time.ToString(@"mm\:ss\:fff");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (stopwatchActive)
@@ -35,5 +42,11 @@ public class Stopwatch : MonoBehaviour
     public void StopStopwatch()
     {
         stopwatchActive = false;
+
+        // If current time is less than the best time, update in playerprefs.
+        if (currentTime < bestTimeValue)
+        {
+            PlayerPrefs.SetFloat(scene.name, currentTime);
+        }
     }
 }
