@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5333783758980578227}
   - component: {fileID: 2551197066424851090}
   - component: {fileID: 8205907525816898951}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: LightBeam1 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6503959445268163333}
   - component: {fileID: 294197282427787908}
   - component: {fileID: 8058670023565439500}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: LightBeam1 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 1733545284753756140}
   - component: {fileID: 1273841795748661147}
   - component: {fileID: 6455795601773576532}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: LightBeam1 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 3875247572084851972}
   - component: {fileID: 7685976368936837497}
   - component: {fileID: 2224980794900641475}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: LightBeam1 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -22,7 +22,7 @@ public class Crosshair
     // function changes the crosshair to distinguish if player is able to execute the grapple move
     public void checkGrappleableCrosshair()
     {
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit, maxGrappleDist, grappleable))
+        if ((Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit rayHit, maxGrappleDist)) && (rayHit.transform.gameObject.layer == LayerMask.NameToLayer("Grapple")))
         {
             isGrappleable.gameObject.SetActive(true);
             isntGrappleable.gameObject.SetActive(false);
