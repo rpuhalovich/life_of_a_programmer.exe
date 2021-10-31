@@ -16,10 +16,7 @@ Shader "Custom/Bug Glitch"
         Tags
 		{ 
 			"Queue" = "Transparent" 
-			"IgnoreProjector" = "True" 
-			"RenderType" = "Transparent" 
 			"PreviewType" = "Plane"
-			"CanUseSpriteAtlas" = "True"
 		}
 
         Cull Off
@@ -47,7 +44,6 @@ Shader "Custom/Bug Glitch"
                 half2 texcoord : TEXCOORD0;
             };
 
-            sampler2D _MainTex;
             fixed4 _TintColor;
 
             v2f vert (appdata input)
@@ -64,9 +60,10 @@ Shader "Custom/Bug Glitch"
             // uses arbitrary numbers in the cos function to generates a number between [0,1)
 			float rand(float x, float y)
             {
-				return frac(cos(x*12.9898 + y*78.233)*43758.5453);
+				return frac(cos(x*75.2157 + y*81.5602)*87256.8926);
 			}
 
+            sampler2D _MainTex;
             float _GlitchLength;
 			float _DisplacementProb;
 			float _DisplacementInt;
@@ -79,7 +76,7 @@ Shader "Custom/Bug Glitch"
                 float interval1 = floor(_Time.y / _GlitchLength) * _GlitchLength;
 
                 // second interval increased arbitrarily for more randomness
-                float interval2 = interval1 + 3.163;
+                float interval2 = interval1 + 7.163;
 
                 // considers interval time and the sprite's x and y positions
                 float timePos1 = interval1 +  UNITY_MATRIX_MV[0][3] + UNITY_MATRIX_MV[1][3];
