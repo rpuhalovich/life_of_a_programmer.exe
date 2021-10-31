@@ -10,8 +10,14 @@ public class LevelCheckpoints : MonoBehaviour
     [SerializeField] private Material triggered;
     [SerializeField] private Transform respawnPoint;
 
+    [SerializeField] private AudioSource finalGlitch;
+    private int stopwatchStopCount;
+
+
     private void Awake()
     {
+        stopwatchStopCount = 0;
+
         Transform checkpointsTransform = transform.Find("Checkpoints");
 
         checkpointSingles = new List<CheckpointSingle>();
@@ -47,6 +53,14 @@ public class LevelCheckpoints : MonoBehaviour
         if (nextCheckpointSingleIndex == checkpointSingles.Count)
         {
             stopwatch.StopStopwatch();
+            finalGlitch.Play();
+
+            //Debug.Log("stopwatchStopCount: " + stopwatchStopCount);
+
+            //// Very bad botch to make final sound play when reached final checkpoint, just cus close to ship.
+            //if (stopwatchStopCount == 1)
+            //else
+            //    stopwatchStopCount++;
         }
     }
 }
