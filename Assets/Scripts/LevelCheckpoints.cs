@@ -27,9 +27,11 @@ public class LevelCheckpoints : MonoBehaviour
 
     public void PlayerThroughCheckpoint(CheckpointSingle checkpointSingle)
     {
-        if (checkpointSingles.IndexOf(checkpointSingle) == nextCheckpointSingleIndex) {
+        if (checkpointSingles.IndexOf(checkpointSingle) == nextCheckpointSingleIndex)
+        {
             // Set light beams to green.
-            foreach (Transform child in checkpointSingle.transform) {
+            foreach (Transform child in checkpointSingle.transform)
+            {
                 child.GetComponent<MeshRenderer>().material = triggered;
             }
             // Set respawn point to this checkpoint.
