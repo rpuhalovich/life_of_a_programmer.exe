@@ -10,8 +10,14 @@ public class LevelCheckpoints : MonoBehaviour
     [SerializeField] private Material triggered;
     [SerializeField] private Transform respawnPoint;
 
+    [SerializeField] private AudioSource finalGlitch;
+    private int stopwatchStopCount;
+
+
     private void Awake()
     {
+        stopwatchStopCount = 0;
+
         Transform checkpointsTransform = transform.Find("Checkpoints");
 
         checkpointSingles = new List<CheckpointSingle>();
@@ -27,9 +33,11 @@ public class LevelCheckpoints : MonoBehaviour
 
     public void PlayerThroughCheckpoint(CheckpointSingle checkpointSingle)
     {
-        if (checkpointSingles.IndexOf(checkpointSingle) == nextCheckpointSingleIndex) {
+        if (checkpointSingles.IndexOf(checkpointSingle) == nextCheckpointSingleIndex)
+        {
             // Set light beams to green.
-            foreach (Transform child in checkpointSingle.transform) {
+            foreach (Transform child in checkpointSingle.transform)
+            {
                 child.GetComponent<MeshRenderer>().material = triggered;
             }
             // Set respawn point to this checkpoint.
@@ -45,6 +53,11 @@ public class LevelCheckpoints : MonoBehaviour
         if (nextCheckpointSingleIndex == checkpointSingles.Count)
         {
             stopwatch.StopStopwatch();
+            if (stopwatchStopCount == 0)
+            {
+                finalGlitch.Play();
+                stopwatchStopCount++;
+            }
         }
     }
 }

@@ -184,14 +184,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        PlayWalkSound(); // Handles the playing and pausing of walking movement.
+
         dashUI.HandleDashUI();
     }
 
     void HandleMovement()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask) || Physics.CheckSphere(groundCheck.position, groundDistance, wallRunable);
-
-        PlayWalkSound(); // Handles the playing and pausing of walking movement.
 
         if (isGrounded)
         {
@@ -277,7 +277,7 @@ public class PlayerController : MonoBehaviour
     {
         // This plays (at a random point) and stops the running audio when moving on a ground.
         am.SetVolume(runningname, 1.0f);
-        if ((isGrounded || wallRun.IsWallRunning()) && movementVector.magnitude > 0.1f && !isPaused) // I dunno why the epsilon has to be so high.
+        if ((isGrounded || wallRun.IsWallRunning()) && movementVector.magnitude > 0.5f && !isPaused) // I dunno why the epsilon has to be so high.
         {
             float delay = Random.Range(0.0f, 5.0f);
             if (!am.isPlaying(runningname)) am.PlayRandom(runningname);

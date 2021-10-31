@@ -116,7 +116,7 @@ public class Dash
     {
         return cooldownRefreshed;
     }
-    
+
     public void ResetCooldown()
     {
         cooldownRefreshed = false;

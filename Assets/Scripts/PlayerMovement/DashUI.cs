@@ -61,7 +61,7 @@ public class DashUI
             arrow3.fillAmount = 1 - dash.CurrCooldownTime() / cooldown;
 
             if (dash.CooldownRefreshed())
-            {    
+            {
                 dash.ResetCooldown();
                 if (dash.GetDashAttempts() == 0)
                 {
@@ -71,7 +71,8 @@ public class DashUI
 
                     dash2.fillAmount = 0;
                     isCooldown = false;
-                } else if (dash.GetDashAttempts() == 1)
+                }
+                else if (dash.GetDashAttempts() == 1)
                 {
                     arrow1.fillAmount = 1;
                     arrow2.fillAmount = 1;
