@@ -23,6 +23,14 @@ public class LevelSelector : MonoBehaviour
         this.levelname = levelname;
     }
 
+    public void Reset()
+    {
+        Time.timeScale = 1.0f;
+        animator.SetTrigger("Fade Out");
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(levelname);
