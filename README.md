@@ -12,6 +12,8 @@ Throughout the game you will see many references to common programming concepts.
 
 ## Getting Started
 
+**_NOTE: The game is only to be played in a 16:9 aspect ratio in the game view. The UI is not designed for any other aspect ratio as is specified in the project settings!_**
+
 The first level is 0_hello_world.lvl and introduces each of the mechanics gradually.
 
 On the bottom left of the Heads Up Display (HUD) you will see a dash meter where the two circles with triangles inside represent dashes currently able to be used (greyed out when unable) and the three arrows will fill up to recharge a used dash every one second. Also seen is a timer for the stopwatch that will begin counting up after passing through the first checkpoint and finish after reaching the final checkpoint (the bug).
