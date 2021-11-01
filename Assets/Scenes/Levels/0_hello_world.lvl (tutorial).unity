@@ -23475,7 +23475,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668920544}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 25.58}
+  m_LocalPosition: {x: 0, y: 0, z: 26.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701294190}
@@ -23506,15 +23506,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '------------------------------
+  m_text: '-------------------------------
 
     Controls[3]
 
-    ------------------------------
+    -------------------------------
 
 
     press
-    shift to dash (2 stores)
+    shift to dash (2 stores), use them wisely and watch its cooldown to pull off
+    shorter times
 
 '
   m_isRightToLeft: 0
@@ -23579,7 +23580,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -12.815649, y: -5.1009827, z: 9.154657, w: -8.5237055}
+  m_margin: {x: -12.815649, y: -5.1009827, z: 8.52549, w: -8.5237055}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -30531,7 +30532,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh223038
+  m_Name: pb_Mesh224408
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
