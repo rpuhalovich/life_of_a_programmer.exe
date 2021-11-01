@@ -25,7 +25,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _FogInt: 0.03
     - _IntersectionThresholdMax: 0.03
     m_Colors:
     - _Color: {r: 0.16477196, g: 0.07409222, b: 0.3490566, a: 1}
+    - _FogColor: {r: 0.23313303, g: 0.08285868, b: 0.3584906, a: 1}
   m_BuildTextureStacks: []
