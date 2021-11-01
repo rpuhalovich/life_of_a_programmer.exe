@@ -54,9 +54,9 @@ Shader "Custom/Fog"
             {
                 // getting the linear eye depth (depth buffer value in the world space)
                 float depth = LinearEyeDepth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.uv)));
-                // saturating the fog intensity * linear eye depth
+                // saturating the fog intensity * (linear eye depth - homogenous vertex coordinate)
                 float diff = saturate(_FogInt * (depth - input.uv.w));
-                // linearly interpolates the fog color and uses a "breathable, smoothstep" curve as the weight
+                // interpolates the fog color and uses a "breathable, smoothstep" curve as the weight
                 // weight is quite specific, altering the values lead to inverted colors
                 float4 outputColor = lerp(fixed4(_FogColor.rgb, 0.0), _FogColor, pow(diff, 3) * (diff * (6 * diff - 15) + 10));
                 UNITY_APPLY_FOG(input.fogCoord, outputColor);
@@ -67,3 +67,4 @@ Shader "Custom/Fog"
         }
     }
 }
+
