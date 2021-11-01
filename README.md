@@ -8,7 +8,7 @@ life_of_a_programmer.exe is a game set as the imaginary hyperbolic stereotype of
 
 In accordance with the code running metaphor, the game has you parkour your way through obstacles over the course of several levels, each of which has a bug. In particular, you are able to double jump, dash, grapple, launch from boostpads and wall run to navigate.
 
-Throughout each level you will see many references to common programming concepts. To name a few, each level is named after a common programming error (save for the tutorial, 0_hello_world.lvl), the tutorial controls are defined in array notation, the main menu is a terminal and of course, the end goal is to catch the bug.
+Throughout the game you will see many references to common programming concepts. To name a few, each level is named after a common programming error (save for the tutorial, 0_hello_world.lvl), the tutorial controls are defined in array notation, the main menu is a terminal and of course, the end goal is to catch the bug.
 
 ## Getting Started
 
@@ -43,6 +43,22 @@ This effect was created in Shader Graph and applied to a plane. A Tiling and Off
 ## Shaders
 
 ### Bug Distortion
+
+![](Docs/Images/bug_glitch.gif)
+
+The Bug Glitch shader contains two glitches, the displacement glitch and the color glitch, both of which have a probability of happening which we’ve set to 0.1. We’ve only set both their intensities to 0.1. The shader also only has one subshader block.
+
+It is important that the ‘Queue’ tag is set to ‘Transparent’ since the glitch effect is alpha-blended, allowing it to merge with the background when it glitches. The ‘PreviewType’ tag is set to ‘Plane’ just because the shader is being used for a sprite. Culling is disabled and the traditional transparency blend method, ‘SrcAlpha OneMinusSrcAlpha’ (also ideal for alpha-blending), is used.
+
+Each point in the object space is transformed by multiplying them with the tint color and using the optional function ‘UnityPixelSnap’ for a more “pixel perfect” glitch. A cos function is then implemented to act as a random probability ([0,1)) generator (randomiser). It takes in two values, multiplies them with arbitrary constants (mashed the keyboard), adds them together, and multiplies them with another arbitrary constant before putting them in the cos function, taking the fractional part of it.
+
+In the frag function, firstly it is made sure that the next glitch can only occur every [_GlitchLength] seconds. By dividing time by \_GlitchLength, using the floor function, and multiplying with \_GlitchLength, this gives us just that. A second time interval is made just by adding another mashed arbitrary constant. The two time intervals are further transformed by adding the x and y positions of the sprite (this is so that sprites with different x and y values don’t glitch unanimously). Different random combinations of these two transformed time intervals are then used in the randomiser ([0,1)) to produce a float for both the displacement and color glitches. If the values were less than their probabilities (\_DisplacementProb and \_ColorProb) then the glitch would occur.
+
+For the color glitch, the random color shifts were precalculated for the RGB values by again using the randomiser, deducting a mean of 0.5, and multiplying by the color glitch intensity (\_ColorInt). For the displacement glitch, the sprite is preemptively split into strips and for each strip a random offset value is generated using the randomiser in a Normal distribution with 0.5 mean and 50 variance.
+
+If the displacement glitch occurs, the randomiser takes in two very complicated, different, random prompts, deducts a mean of 0.5 from the random value ([0,1)) and multiplies it with the displacement glitch intensity (\_DisplacementInt). The resulting value is added to the input texture’s x coordinate. To prevent the texture coordinate from interfering with other parts of the texture, the coordinate is looped between 0 and 1 by using the fmod function (modulus).
+
+The shifted RGB values were calculated preemptively as well by taking the texture coordinate of the input’s x and y values and adding the precalculated random color shifts to both. If the color glitch occurs, we use the resulting shifted RGB values to make up the output color with an average alpha of the three, where we lastly then apply the tint color and the alpha.
 
 ### Fog
 
@@ -92,7 +108,7 @@ It was almost unanimously the wallrunning that was the least intuitive mechanic.
 
 A good game difficulty would have a linear progression of difficulty over the course of many levels.
 
-Given the context of skill levels of each other participants, the game seemed to be challenging, but not to the point of not being fun. More experienced participants would be able to pick up the controls and complete levels easily while less experienced participants would require many more attempts to complete a level. This is not bad however, overall the difficulty was acknowledged to be slightly above average but not to a frustrating degree. The same was said by participants who were being evaluated using the Coopertaive Evaluation technique below.
+Given the context of skill levels of each other participants, the game seemed to be challenging, but not to the point of not being fun. More experienced participants would be able to pick up the controls and complete levels easily while less experienced participants would require many more attempts to complete a level. This is not bad however, overall the difficulty was acknowledged to be slightly above average but not to a frustrating degree. The same was said by participants who were being evaluated using the Co-Operative Evaluation technique below.
 
 **_5: What do you think you would add to the game to improve it?_**
 
@@ -128,39 +144,57 @@ Finally, the tutorial now mentions the colour change when you are able to grappl
 
 - Eight of the ten participants for the evaluation were arranged by me.
 - Post processing effects (chromatic aberration, colour correction etc.), including the use of bloom on most of the assets. This involved converting the current default project to one that uses the Universal Render Pipeline.
-- Procedurally generated clouds.
-- The particle effects on the bugs and boost pads.
+- Procedurally generated clouds (see Procedurally Generated Clouds section).
+- The particle effects on the bugs and boost pads (see particle section).
 - Open screen, and level selection screen.
-- Scene fade transitions, as well as scripting the ability to switch scenes.
-- Pause menu, including the sensitivity and music sliders.
+- Animated the scene fade transitions, as well as scripting the ability to switch scenes.
+- Scripting the pause menu, including the sensitivity and music sliders as well as the reset, level select and quit buttons. The PlayerPrefs functionality was used to persistently save the desired positions of sensitivity and music volume sliders (even after shutting down and restarting the game/device).
 - Double jumping.
 - Boost pads.
 - Dash ability.
 - Coming up with the story, cinematics (using the Unity timeline), and editing the gameplay video.
 - All sound design of the various game elements using Reaper. Including the synthesis of some sounds with Serum.
-- The choice of music and programming the playback during gameplay and the level select screen, as well as the Open Screen sound.
-- Levels 0_hello_world.lvl and 1_memory_leak.lvl were made by me. Seth however was the one to place all tutorial control signs in 1_memory_leak.lvl.
+- The choice of music and scripting the playback during gameplay and the level select screen, as well as the Open Screen sound.
+- Levels 0_hello_world.lvl, 1_memory_leak.lvl and 2_null_pointer_exception.lvl were made by me. Seth however was the one to place all tutorial control signs in 0_hello_world.lvl.
+- Implemented the best time feature for the timer. This was implemented using the PlayerPrefs functionality and allows for persistent records of a players best time on that particular device in between multiple play sessions.
 
 ## Contributions - Marvin
-- Implemented FPS controller
-  - Using mouse to look around
-  - WASD keys for movement
-  - Space for jump, with gravity and ground check
-- Implemented checkpoint system
-  - Added scripts to manage individual checkpoints as well as level checkpoints
-  - Script to change the colour of checkpoints from red to green on trigger
-  - Script to ensure checkpoints are triggered in the correct order
-- Implemented respawn system
-  - Added respawn trigger ("death plane" below the map)
-  - Added respawn point to reset player position upon death
-  - Script to trigger respawn plane
-  - Script to set respawn point to latest checkpoint triggered
-- Implemented stopwatch
-  - Added stopwatch counter to the UI
-  - Added script for stopwatch functionality
-  - Script to ensure stopwatch starts on first checkpoint and stops on the final checkpoint (provided all previous checkpoints have been triggered)
+
+- Implemented FPS controller.
+  - Using mouse to look around.
+  - WASD keys for movement.
+  - Space for jump, with gravity and ground check.
+- Implemented checkpoint system.
+  - Added scripts to manage individual checkpoints as well as level checkpoints.
+  - Script to change the colour of checkpoints from red to green on trigger.
+  - Script to ensure checkpoints are triggered in the correct order.
+- Implemented respawn system.
+  - Added respawn trigger ("death plane" below the map).
+  - Added respawn point to reset player position upon death.
+  - Script to trigger respawn plane.
+  - Script to set respawn point to latest checkpoint triggered.
+- Implemented stopwatch.
+  - Added stopwatch counter to the UI.
+  - Added script for stopwatch functionality.
+  - Script to ensure stopwatch starts on the first checkpoint and stops on the final checkpoint (provided all previous checkpoints have been triggered).
 
 ## Contributions - Seth
+
+- Three participants for evaluation were arranged by me.
+- Wall running mechanics.
+  - Wall running.
+  - Tilting angle transition for Main Camera.
+  - Jump refresh.
+- Grappling mechanics.
+  - Grappling Line.
+  - Change of FOV when flying.
+  - Momentum after reaching the end of the grapple.
+- Implementing the grapple gun model and the grapple line coming out of it.
+- Made the UI for the dash mechanic to indicate no. of stored dashes and its cooldown.
+- Bug Glitch Shader.
+- Re-arranged and refined the levels to make them more 'organised' (e.g. some child objects jotting out/not connecting to another object as it should).
+- Tutorial guide.
+- Created levels 3_illegal_use_of_pointer.lvl, 4_segmentation_fault.lvl, and -1_algorithms_are_fun.lvl 'sandbox' level were done by me.
 
 ## References
 
@@ -173,3 +207,9 @@ Creating A Dash Ability: https://www.youtube.com/watch?v=QyqSoz2ivOk
 Lens Dirt: https://gitlab.labranet.jamk.fi/K8721/unity/-/tree/6dd55de75c1b9f1a7239dab5ec6ffc2badfa09d7/SurvivalShooter/Assets/PostProcessing/Textures/Lens%20Dirt
 
 Footsteps: https://freesound.org/people/Disagree/sounds/433725/
+
+Wall Running Mechanic: https://www.youtube.com/watch?v=Ryi9JxbMCFM&ab_channel=Dave%2FGameDevelopment
+
+Grapple Mechanic: https://www.youtube.com/watch?v=twMkGTqyZvI&ab_channel=CodeMonkey
+
+Bug Glitch Shader: https://gist.github.com/KeyMaster-/363d3d5c35b956dfacdd
