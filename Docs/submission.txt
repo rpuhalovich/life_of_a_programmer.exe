@@ -8,4 +8,5 @@ Marvin Chew (1085996)
 Seth Ng (1067992)
 
 Github URL: https://github.com/Graphics-and-Interaction-COMP30019-2021/project2-project2_group_21
+Github HTTPS: https://github.com/Graphics-and-Interaction-COMP30019-2021/project2-project2_group_21.git
 Commit hash: <commit hash goes here>
