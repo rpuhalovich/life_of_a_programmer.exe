@@ -2,61 +2,67 @@ Shader "Custom/Fog"
 {
     Properties
     {
-       _Color("Main Color", Color) = (1, 1, 1, .5)
-       _IntersectionThresholdMax("Intersection Threshold Max", float) = 1
+        _FogColor("Fog Color", Color) = (1, 1, 1, .5)
+        _FogInt("Fog Intersection", float) = 1
     }
     SubShader
     {
-        Tags { "Queue" = "Transparent" "RenderType"="Transparent"  }
-  
+        Tags
+        {
+            "Queue" = "Transparent"
+            "RenderType" = "Transparent"
+        }
+
+        Blend SrcAlpha OneMinusSrcAlpha
+
         Pass
         {
-           Blend SrcAlpha OneMinusSrcAlpha
-           ZWrite Off
-           CGPROGRAM
-           #pragma vertex vert
-           #pragma fragment frag
-           #pragma multi_compile_fog
-           #include "UnityCG.cginc"
-  
-           struct appdata
-           {
-               float4 vertex : POSITION;
-           };
-  
-           struct v2f
-           {
-               float4 scrPos : TEXCOORD0;
-               UNITY_FOG_COORDS(1)
-               float4 vertex : SV_POSITION;
-           };
-  
-           sampler2D _CameraDepthTexture;
-           float4 _Color;
-           float4 _IntersectionColor;
-           float _IntersectionThresholdMax;
-  
-           v2f vert(appdata v)
-           {
-               v2f o;
-               o.vertex = UnityObjectToClipPos(v.vertex);
-               o.scrPos = ComputeScreenPos(o.vertex);
-               UNITY_TRANSFER_FOG(o,o.vertex);
-               return o;  
-           }
-  
-  
-            half4 frag(v2f i) : SV_TARGET
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #pragma multi_compile_fog
+            #include "UnityCG.cginc"
+
+            struct appdata
             {
-               float depth = LinearEyeDepth (tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.scrPos)));
-               float diff = saturate(_IntersectionThresholdMax * (depth - i.scrPos.w));
-  
-               fixed4 col = lerp(fixed4(_Color.rgb, 0.0), _Color, diff * diff * diff * (diff * (6 * diff - 15) + 10));
-  
-               UNITY_APPLY_FOG(i.fogCoord, col);
-               return col;
+                float4 vertex : POSITION;
+            };
+
+            struct v2f
+            {
+                float4 uv : TEXCOORD0;
+                UNITY_FOG_COORDS(1)
+                float4 vertex : SV_POSITION;
+            };
+
+            sampler2D _CameraDepthTexture;
+            float4 _FogColor;
+            float _FogInt;
+            float4 _IntersectionColor;
+
+            // takes each vertex's position and record it as fog coordinates
+            v2f vert (appdata input)
+            {
+                v2f output;
+                output.vertex = UnityObjectToClipPos(input.vertex);
+                output.uv = ComputeScreenPos(output.vertex);
+                UNITY_TRANSFER_FOG(output, output.vertex);
+                return output;
             }
-  
+
+            float4 frag (v2f input) : SV_Target
+            {
+                // getting the linear eye depth (depth buffer value in the world space)
+                float depth = LinearEyeDepth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(input.uv)));
+                // saturating the fog intensity * linear eye depth
+                float diff = saturate(_FogInt * (depth - input.uv.w));
+                // linearly interpolates the fog color and uses a "breathable, smoothstep" curve as the weight
+                // weight is quite specific, altering the values lead to inverted colors
+                float4 outputColor = lerp(fixed4(_FogColor.rgb, 0.0), _FogColor, pow(diff, 3) * (diff * (6 * diff - 15) + 10));
+                UNITY_APPLY_FOG(input.fogCoord, outputColor);
+
+                return outputColor;
+            }
             ENDCG
         }
     }
