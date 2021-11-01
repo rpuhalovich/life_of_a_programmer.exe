@@ -1,6 +1,9 @@
 --- Team 21 - Final Submission ---
 
-NOTE: As was advised by Jarrod in a private consult, I must inform you that one team member (Tristan Chandraratna) has dropped out of univerity during week 11 and has not contributed any code or attended any meetings for the entire duration of the second project. Therefore, I have excluded him from the list below.
+NOTE: As was advised by Jarrod in a private consult, I must inform you that one team member (Tristan Chandraratna) has 
+dropped out of univerity during week 11 and has not contributed any code or attended any meetings for the entire duration 
+of the second project. Therefore, I have excluded him from the list below.
+- Ryan
 
 Team members:
 Ryan Puhalovich (1064808)
