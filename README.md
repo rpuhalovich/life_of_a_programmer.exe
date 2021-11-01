@@ -142,6 +142,23 @@ Finally, the tutorial now mentions the colour change when you are able to grappl
 - Levels 0_hello_world.lvl and 1_memory_leak.lvl were made by me. Seth however was the one to place all tutorial control signs in 1_memory_leak.lvl.
 
 ## Contributions - Marvin
+- Implemented FPS controller
+  - Using mouse to look around
+  - WASD keys for movement
+  - Space for jump, with gravity and ground check
+- Implemented checkpoint system
+  - Added scripts to manage individual checkpoints as well as level checkpoints
+  - Script to change the colour of checkpoints from red to green on trigger
+  - Script to ensure checkpoints are triggered in the correct order
+- Implemented respawn system
+  - Added respawn trigger ("death plane" below the map)
+  - Added respawn point to reset player position upon death
+  - Script to trigger respawn plane
+  - Script to set respawn point to latest checkpoint triggered
+- Implemented stopwatch
+  - Added stopwatch counter to the UI
+  - Added script for stopwatch functionality
+  - Script to ensure stopwatch starts on first checkpoint and stops on the final checkpoint (provided all previous checkpoints have been triggered)
 
 ## Contributions - Seth
 
