@@ -1,0 +1,11 @@
+--- Team 21 - Final Submission ---
+
+NOTE: As was advised by Jarrod in a private consult, I must inform you that one team member (Tristan Chandraratna) has dropped out of univerity during week 11 and has not contributed any code or attended any meetings for the entire duration of the second project. Therefore, I have excluded him from the list below.
+
+Team members:
+Ryan Puhalovich (1064808)
+Marvin Chew (1085996)
+Seth Ng (1067992)
+
+Github URL: https://github.com/Graphics-and-Interaction-COMP30019-2021/project2-project2_group_21
+Commit hash: <commit hash goes here>
