@@ -44,7 +44,7 @@ This effect was created in Shader Graph and applied to a plane. A Tiling and Off
 
 ## Shaders
 
-### Bug Distortion
+### Bug Glitch
 
 ![](Docs/Images/bug_glitch.gif)
 
