@@ -1,5 +1,7 @@
 # life_of_a_programmer.exe
 
+![](Docs/Images/title.png)
+
 ## Introduction
 
 This is a game that was made as the second assignment for the COMP30019 subject at the University of Melbourne over the course of six weeks.
