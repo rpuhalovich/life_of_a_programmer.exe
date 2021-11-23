@@ -2,6 +2,8 @@
 
 ![](Docs/Images/title.png)
 
+Game trailer (using a very early version of the game): https://www.youtube.com/watch?v=CzQxTDbbYWs
+
 ## Introduction
 
 This is a game that was made as the second assignment for the COMP30019 subject at the University of Melbourne over the course of six weeks.
