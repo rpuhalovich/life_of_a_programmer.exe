@@ -18,6 +18,8 @@ Throughout the game you will see many references to common programming concepts.
 
 **_NOTE: The game is only to be played in a 16:9 aspect ratio in the game view. The UI is not designed for any other aspect ratio as is specified in the project settings!_**
 
+A prebuilt binary is available in Releases.
+
 After cloning the repository and opening the project in Unity, open `Assets/Scenes/Menu/Open Screen` to begin. The tutorial level is 0_hello_world.lvl and introduces each of the mechanics gradually.
 
 ## Contributions - Ryan
