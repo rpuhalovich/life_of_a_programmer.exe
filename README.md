@@ -2,8 +2,6 @@
 
 ![](Docs/Images/title.png)
 
-Game trailer (using a very early version of the game): https://www.youtube.com/watch?v=CzQxTDbbYWs
-
 ## Introduction
 
 life_of_a_programmer.exe is a game set as the imaginary hyperbolic stereotype of what it is like to be an everyday programmer. The story is that you are a programmer running through code trying to catch a bug at the very end of the level (code) in the shortest time possible.
